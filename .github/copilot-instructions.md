@@ -41,9 +41,18 @@
 
 ### Python Standards
 - Follow PEP 8 strictly
-- Use type hints for all function parameters and return values
+- **STRICT TYPE HINTS**: Use type hints for ALL function parameters, return values, class attributes, and variables
+  - Use `from typing import Optional, List, Dict, Tuple, Any, Union, Callable` as needed
+  - No `Any` type unless absolutely necessary (document why)
+  - Use `-> None` explicitly for functions that don't return values
+- **STRICT LINTING**: Code must pass flake8, black, and mypy with no errors
+  - Run `black .` for formatting
+  - Run `flake8 --max-line-length=100` for style checks
+  - Run `mypy --strict .` for type checking
+  - Fix all warnings and errors before committing
 - Write Google-style docstrings for all modules, classes, and functions
 - Prefer dataclasses or Pydantic models for structured data
+- Use string literals for forward references in type hints when needed
 
 ### PySide6 GUI Development
 - Add proper test IDs: `widget.setObjectName("testid_component_name")`
@@ -143,7 +152,10 @@ Before suggesting code, verify:
 - [ ] Error handling covers expected failure cases
 - [ ] Logging statements provide useful debugging information
 - [ ] GUI components have test IDs
-- [ ] Type hints are present
+- [ ] **ALL type hints are present (parameters, returns, attributes)**
+- [ ] **Code passes mypy --strict with no errors**
+- [ ] **Code passes flake8 with no errors**
+- [ ] **Code is formatted with black**
 - [ ] Docstrings explain purpose and usage
 - [ ] No hardcoded values that should be configurable
 - [ ] Resources are properly managed (files closed, connections cleaned up)
