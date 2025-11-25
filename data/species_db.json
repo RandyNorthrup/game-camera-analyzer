@@ -1,0 +1,711 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-11-24",
+    "region": "California",
+    "description": "Wildlife species database for California game camera analysis",
+    "total_species": 35
+  },
+  "species": [
+    {
+      "species_id": "mule_deer",
+      "common_name": "Mule Deer",
+      "scientific_name": "Odocoileus hemionus",
+      "family": "Cervidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Artiodactyla",
+        "family": "Cervidae",
+        "genus": "Odocoileus",
+        "species": "hemionus"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Large deer native to western North America, distinguished by large mule-like ears",
+      "aliases": ["black-tailed deer", "muley"],
+      "habitat": ["forest", "chaparral", "grassland", "mountain"],
+      "activity_pattern": "crepuscular"
+    },
+    {
+      "species_id": "black_bear",
+      "common_name": "Black Bear",
+      "scientific_name": "Ursus americanus",
+      "family": "Ursidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Ursidae",
+        "genus": "Ursus",
+        "species": "americanus"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Medium-sized bear native to North America, common in California forests",
+      "aliases": ["American black bear"],
+      "habitat": ["forest", "woodland", "mountain"],
+      "activity_pattern": "crepuscular"
+    },
+    {
+      "species_id": "mountain_lion",
+      "common_name": "Mountain Lion",
+      "scientific_name": "Puma concolor",
+      "family": "Felidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Felidae",
+        "genus": "Puma",
+        "species": "concolor"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Large cat native to the Americas, apex predator in California",
+      "aliases": ["cougar", "puma", "catamount", "panther"],
+      "habitat": ["forest", "mountain", "chaparral", "desert"],
+      "activity_pattern": "crepuscular"
+    },
+    {
+      "species_id": "coyote",
+      "common_name": "Coyote",
+      "scientific_name": "Canis latrans",
+      "family": "Canidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Canidae",
+        "genus": "Canis",
+        "species": "latrans"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Highly adaptable canid found throughout California",
+      "aliases": ["prairie wolf", "brush wolf"],
+      "habitat": ["grassland", "desert", "chaparral", "urban"],
+      "activity_pattern": "crepuscular"
+    },
+    {
+      "species_id": "gray_fox",
+      "common_name": "Gray Fox",
+      "scientific_name": "Urocyon cinereoargenteus",
+      "family": "Canidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Canidae",
+        "genus": "Urocyon",
+        "species": "cinereoargenteus"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Small omnivorous fox capable of climbing trees, common in California",
+      "aliases": ["tree fox"],
+      "habitat": ["woodland", "chaparral", "forest"],
+      "activity_pattern": "nocturnal"
+    },
+    {
+      "species_id": "bobcat",
+      "common_name": "Bobcat",
+      "scientific_name": "Lynx rufus",
+      "family": "Felidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Felidae",
+        "genus": "Lynx",
+        "species": "rufus"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Medium-sized cat with distinctive short tail, widespread in California",
+      "aliases": ["wildcat", "bay lynx"],
+      "habitat": ["forest", "chaparral", "woodland", "desert"],
+      "activity_pattern": "crepuscular"
+    },
+    {
+      "species_id": "raccoon",
+      "common_name": "Raccoon",
+      "scientific_name": "Procyon lotor",
+      "family": "Procyonidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Procyonidae",
+        "genus": "Procyon",
+        "species": "lotor"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Highly intelligent omnivore with distinctive facial mask",
+      "aliases": ["common raccoon"],
+      "habitat": ["forest", "urban", "wetland", "riparian"],
+      "activity_pattern": "nocturnal"
+    },
+    {
+      "species_id": "striped_skunk",
+      "common_name": "Striped Skunk",
+      "scientific_name": "Mephitis mephitis",
+      "family": "Mephitidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Mephitidae",
+        "genus": "Mephitis",
+        "species": "mephitis"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Black and white omnivore known for defensive spray",
+      "aliases": ["polecat"],
+      "habitat": ["grassland", "woodland", "urban", "chaparral"],
+      "activity_pattern": "nocturnal"
+    },
+    {
+      "species_id": "western_gray_squirrel",
+      "common_name": "Western Gray Squirrel",
+      "scientific_name": "Sciurus griseus",
+      "family": "Sciuridae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Rodentia",
+        "family": "Sciuridae",
+        "genus": "Sciurus",
+        "species": "griseus"
+      },
+      "conservation_status": "Near Threatened",
+      "description": "Large tree squirrel native to California oak woodlands",
+      "aliases": ["California gray squirrel"],
+      "habitat": ["oak woodland", "mixed forest"],
+      "activity_pattern": "diurnal"
+    },
+    {
+      "species_id": "california_ground_squirrel",
+      "common_name": "California Ground Squirrel",
+      "scientific_name": "Otospermophilus beecheyi",
+      "family": "Sciuridae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Rodentia",
+        "family": "Sciuridae",
+        "genus": "Otospermophilus",
+        "species": "beecheyi"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Common ground-dwelling squirrel found throughout California",
+      "aliases": ["Beechey ground squirrel"],
+      "habitat": ["grassland", "chaparral", "oak woodland"],
+      "activity_pattern": "diurnal"
+    },
+    {
+      "species_id": "wild_turkey",
+      "common_name": "Wild Turkey",
+      "scientific_name": "Meleagris gallopavo",
+      "family": "Phasianidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Aves",
+        "order": "Galliformes",
+        "family": "Phasianidae",
+        "genus": "Meleagris",
+        "species": "gallopavo"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Large ground-dwelling bird, introduced and now common in California",
+      "aliases": ["turkey"],
+      "habitat": ["oak woodland", "grassland", "forest edge"],
+      "activity_pattern": "diurnal"
+    },
+    {
+      "species_id": "california_quail",
+      "common_name": "California Quail",
+      "scientific_name": "Callipepla californica",
+      "family": "Odontophoridae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Aves",
+        "order": "Galliformes",
+        "family": "Odontophoridae",
+        "genus": "Callipepla",
+        "species": "californica"
+      },
+      "conservation_status": "Least Concern",
+      "description": "State bird of California, small ground-dwelling bird with distinctive plume",
+      "aliases": ["valley quail"],
+      "habitat": ["chaparral", "woodland", "grassland"],
+      "activity_pattern": "diurnal"
+    },
+    {
+      "species_id": "wild_pig",
+      "common_name": "Wild Pig",
+      "scientific_name": "Sus scrofa",
+      "family": "Suidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Artiodactyla",
+        "family": "Suidae",
+        "genus": "Sus",
+        "species": "scrofa"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Non-native invasive species causing ecological damage in California",
+      "aliases": ["feral pig", "wild boar", "feral hog"],
+      "habitat": ["forest", "grassland", "chaparral", "oak woodland"],
+      "activity_pattern": "crepuscular"
+    },
+    {
+      "species_id": "roosevelt_elk",
+      "common_name": "Roosevelt Elk",
+      "scientific_name": "Cervus canadensis roosevelti",
+      "family": "Cervidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Artiodactyla",
+        "family": "Cervidae",
+        "genus": "Cervus",
+        "species": "canadensis roosevelti"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Largest of North American elk subspecies, found in Northern California",
+      "aliases": ["Olympic elk"],
+      "habitat": ["forest", "grassland", "coastal prairie"],
+      "activity_pattern": "crepuscular"
+    },
+    {
+      "species_id": "tule_elk",
+      "common_name": "Tule Elk",
+      "scientific_name": "Cervus canadensis nannodes",
+      "family": "Cervidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Artiodactyla",
+        "family": "Cervidae",
+        "genus": "Cervus",
+        "species": "canadensis nannodes"
+      },
+      "conservation_status": "Near Threatened",
+      "description": "Smallest elk subspecies, endemic to California",
+      "aliases": ["dwarf elk"],
+      "habitat": ["grassland", "oak woodland", "wetland"],
+      "activity_pattern": "crepuscular"
+    },
+    {
+      "species_id": "virginia_opossum",
+      "common_name": "Virginia Opossum",
+      "scientific_name": "Didelphis virginiana",
+      "family": "Didelphidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Didelphimorphia",
+        "family": "Didelphidae",
+        "genus": "Didelphis",
+        "species": "virginiana"
+      },
+      "conservation_status": "Least Concern",
+      "description": "North America's only marsupial, introduced to California",
+      "aliases": ["opossum", "possum"],
+      "habitat": ["forest", "woodland", "urban", "riparian"],
+      "activity_pattern": "nocturnal"
+    },
+    {
+      "species_id": "badger",
+      "common_name": "American Badger",
+      "scientific_name": "Taxidea taxus",
+      "family": "Mustelidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Mustelidae",
+        "genus": "Taxidea",
+        "species": "taxus"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Powerful burrowing carnivore found in open habitats",
+      "aliases": ["badger"],
+      "habitat": ["grassland", "desert", "chaparral"],
+      "activity_pattern": "nocturnal"
+    },
+    {
+      "species_id": "ringtail",
+      "common_name": "Ringtail",
+      "scientific_name": "Bassariscus astutus",
+      "family": "Procyonidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Procyonidae",
+        "genus": "Bassariscus",
+        "species": "astutus"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Small nocturnal carnivore with distinctive ringed tail",
+      "aliases": ["ringtail cat", "miner's cat"],
+      "habitat": ["rocky terrain", "chaparral", "woodland"],
+      "activity_pattern": "nocturnal"
+    },
+    {
+      "species_id": "long_tailed_weasel",
+      "common_name": "Long-tailed Weasel",
+      "scientific_name": "Mustela frenata",
+      "family": "Mustelidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Mustelidae",
+        "genus": "Mustela",
+        "species": "frenata"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Small carnivore with elongated body and long tail",
+      "aliases": ["weasel"],
+      "habitat": ["grassland", "woodland", "riparian"],
+      "activity_pattern": "nocturnal"
+    },
+    {
+      "species_id": "spotted_skunk",
+      "common_name": "Western Spotted Skunk",
+      "scientific_name": "Spilogale gracilis",
+      "family": "Mephitidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Mephitidae",
+        "genus": "Spilogale",
+        "species": "gracilis"
+      },
+      "conservation_status": "Vulnerable",
+      "description": "Small skunk with distinctive spotted pattern, declining in California",
+      "aliases": ["civet cat"],
+      "habitat": ["chaparral", "woodland", "grassland"],
+      "activity_pattern": "nocturnal"
+    },
+    {
+      "species_id": "desert_bighorn_sheep",
+      "common_name": "Desert Bighorn Sheep",
+      "scientific_name": "Ovis canadensis nelsoni",
+      "family": "Bovidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Artiodactyla",
+        "family": "Bovidae",
+        "genus": "Ovis",
+        "species": "canadensis nelsoni"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Mountain sheep adapted to desert environments in Southern California",
+      "aliases": ["Nelson's bighorn sheep"],
+      "habitat": ["desert mountain", "rocky terrain"],
+      "activity_pattern": "diurnal"
+    },
+    {
+      "species_id": "pronghorn",
+      "common_name": "Pronghorn",
+      "scientific_name": "Antilocapra americana",
+      "family": "Antilocapridae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Artiodactyla",
+        "family": "Antilocapridae",
+        "genus": "Antilocapra",
+        "species": "americana"
+      },
+      "conservation_status": "Least Concern",
+      "description": "North America's fastest land animal, found in northeastern California",
+      "aliases": ["American antelope"],
+      "habitat": ["grassland", "sagebrush"],
+      "activity_pattern": "diurnal"
+    },
+    {
+      "species_id": "black_tailed_jackrabbit",
+      "common_name": "Black-tailed Jackrabbit",
+      "scientific_name": "Lepus californicus",
+      "family": "Leporidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Lagomorpha",
+        "family": "Leporidae",
+        "genus": "Lepus",
+        "species": "californicus"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Large hare with distinctive long ears and black tail tip",
+      "aliases": ["California jackrabbit"],
+      "habitat": ["grassland", "desert", "chaparral"],
+      "activity_pattern": "crepuscular"
+    },
+    {
+      "species_id": "brush_rabbit",
+      "common_name": "Brush Rabbit",
+      "scientific_name": "Sylvilagus bachmani",
+      "family": "Leporidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Lagomorpha",
+        "family": "Leporidae",
+        "genus": "Sylvilagus",
+        "species": "bachmani"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Small rabbit endemic to California and Oregon",
+      "aliases": ["western brush rabbit"],
+      "habitat": ["chaparral", "woodland"],
+      "activity_pattern": "crepuscular"
+    },
+    {
+      "species_id": "desert_cottontail",
+      "common_name": "Desert Cottontail",
+      "scientific_name": "Sylvilagus audubonii",
+      "family": "Leporidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Lagomorpha",
+        "family": "Leporidae",
+        "genus": "Sylvilagus",
+        "species": "audubonii"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Cottontail rabbit adapted to arid environments",
+      "aliases": ["Audubon's cottontail"],
+      "habitat": ["desert", "grassland", "chaparral"],
+      "activity_pattern": "crepuscular"
+    },
+    {
+      "species_id": "kit_fox",
+      "common_name": "Kit Fox",
+      "scientific_name": "Vulpes macrotis",
+      "family": "Canidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Canidae",
+        "genus": "Vulpes",
+        "species": "macrotis"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Small desert fox with large ears, endangered in California",
+      "aliases": ["swift fox"],
+      "habitat": ["desert", "grassland"],
+      "activity_pattern": "nocturnal"
+    },
+    {
+      "species_id": "san_joaquin_kit_fox",
+      "common_name": "San Joaquin Kit Fox",
+      "scientific_name": "Vulpes macrotis mutica",
+      "family": "Canidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Canidae",
+        "genus": "Vulpes",
+        "species": "macrotis mutica"
+      },
+      "conservation_status": "Endangered",
+      "description": "Endangered subspecies endemic to California's San Joaquin Valley",
+      "aliases": ["valley kit fox"],
+      "habitat": ["grassland", "agricultural land"],
+      "activity_pattern": "nocturnal"
+    },
+    {
+      "species_id": "river_otter",
+      "common_name": "North American River Otter",
+      "scientific_name": "Lontra canadensis",
+      "family": "Mustelidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Mustelidae",
+        "genus": "Lontra",
+        "species": "canadensis"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Semi-aquatic carnivore found in California waterways",
+      "aliases": ["river otter"],
+      "habitat": ["riparian", "wetland", "lake", "coastal"],
+      "activity_pattern": "diurnal"
+    },
+    {
+      "species_id": "marten",
+      "common_name": "Pacific Marten",
+      "scientific_name": "Martes caurina",
+      "family": "Mustelidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Mustelidae",
+        "genus": "Martes",
+        "species": "caurina"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Forest-dwelling carnivore found in Northern California mountains",
+      "aliases": ["coastal marten"],
+      "habitat": ["old-growth forest", "mountain"],
+      "activity_pattern": "crepuscular"
+    },
+    {
+      "species_id": "fisher",
+      "common_name": "Fisher",
+      "scientific_name": "Pekania pennanti",
+      "family": "Mustelidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Mustelidae",
+        "genus": "Pekania",
+        "species": "pennanti"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Large arboreal carnivore, reintroduced to parts of California",
+      "aliases": ["fisher cat", "black cat"],
+      "habitat": ["old-growth forest", "mixed forest"],
+      "activity_pattern": "nocturnal"
+    },
+    {
+      "species_id": "california_kangaroo_rat",
+      "common_name": "California Kangaroo Rat",
+      "scientific_name": "Dipodomys californicus",
+      "family": "Heteromyidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Rodentia",
+        "family": "Heteromyidae",
+        "genus": "Dipodomys",
+        "species": "californicus"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Small hopping rodent adapted to arid environments",
+      "aliases": ["kangaroo rat"],
+      "habitat": ["grassland", "chaparral", "oak woodland"],
+      "activity_pattern": "nocturnal"
+    },
+    {
+      "species_id": "woodrat",
+      "common_name": "Dusky-footed Woodrat",
+      "scientific_name": "Neotoma fuscipes",
+      "family": "Cricetidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Rodentia",
+        "family": "Cricetidae",
+        "genus": "Neotoma",
+        "species": "fuscipes"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Large rodent known for building elaborate stick nests",
+      "aliases": ["packrat", "trade rat"],
+      "habitat": ["chaparral", "oak woodland", "forest"],
+      "activity_pattern": "nocturnal"
+    },
+    {
+      "species_id": "common_raven",
+      "common_name": "Common Raven",
+      "scientific_name": "Corvus corax",
+      "family": "Corvidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Aves",
+        "order": "Passeriformes",
+        "family": "Corvidae",
+        "genus": "Corvus",
+        "species": "corax"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Highly intelligent large corvid found throughout California",
+      "aliases": ["raven"],
+      "habitat": ["varied - found in most habitats"],
+      "activity_pattern": "diurnal"
+    },
+    {
+      "species_id": "roadrunner",
+      "common_name": "Greater Roadrunner",
+      "scientific_name": "Geococcyx californianus",
+      "family": "Cuculidae",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Aves",
+        "order": "Cuculiformes",
+        "family": "Cuculidae",
+        "genus": "Geococcyx",
+        "species": "californianus"
+      },
+      "conservation_status": "Least Concern",
+      "description": "Fast-running ground cuckoo found in Southern California",
+      "aliases": ["chaparral cock"],
+      "habitat": ["desert", "chaparral", "grassland"],
+      "activity_pattern": "diurnal"
+    },
+    {
+      "species_id": "unknown",
+      "common_name": "Unknown Species",
+      "scientific_name": "Unknown",
+      "family": "Unknown",
+      "taxonomy": {
+        "kingdom": "Unknown",
+        "phylum": "Unknown",
+        "class": "Unknown",
+        "order": "Unknown",
+        "family": "Unknown",
+        "genus": "Unknown",
+        "species": "Unknown"
+      },
+      "conservation_status": "Unknown",
+      "description": "Unidentified animal or low-confidence detection",
+      "aliases": ["unidentified", "other"],
+      "habitat": ["varied"],
+      "activity_pattern": "unknown"
+    }
+  ]
+}
