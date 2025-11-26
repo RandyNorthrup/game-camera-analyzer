@@ -77,14 +77,19 @@ class ModelManager:
 
         Returns:
             Device string ('cuda', 'mps', or 'cpu')
+
+        Note:
+            MPS (Apple Silicon) is currently disabled due to torchvision::nms
+            not being fully implemented. Will automatically use CPU on Mac.
         """
         if device is not None and device != "auto":
             # Validate requested device
             if device == "cuda" and not torch.cuda.is_available():
                 logger.warning("CUDA requested but not available, falling back to CPU")
                 return "cpu"
-            elif device == "mps" and not torch.backends.mps.is_available():
-                logger.warning("MPS requested but not available, falling back to CPU")
+            elif device == "mps":
+                logger.warning("MPS explicitly requested, but using CPU due to torchvision::nms limitation")
+                logger.info("See: https://github.com/pytorch/pytorch/issues/77764")
                 return "cpu"
             return device
 
@@ -94,8 +99,10 @@ class ModelManager:
             logger.info(f"CUDA available: {cuda_device}")
             return "cuda"
         elif torch.backends.mps.is_available():
-            logger.info("MPS (Apple Silicon) available")
-            return "mps"
+            logger.info("MPS (Apple Silicon) detected")
+            logger.warning("Using CPU instead of MPS due to torchvision::nms limitation")
+            logger.info("This will be slower but more compatible. See: https://github.com/pytorch/pytorch/issues/77764")
+            return "cpu"
         else:
             logger.info("Using CPU (no GPU acceleration available)")
             return "cpu"
