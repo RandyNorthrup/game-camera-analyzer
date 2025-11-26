@@ -7,6 +7,7 @@ from core.classification_engine import (
     SpeciesInfo,
 )
 from core.cropping_engine import CropConfig, CropResult, CroppingEngine
+from core.csv_exporter import CSVExporter, ExportConfig
 from core.detection_engine import DetectionEngine, DetectionResult
 
 __all__ = [
@@ -19,4 +20,6 @@ __all__ = [
     "CroppingEngine",
     "CropConfig",
     "CropResult",
+    "CSVExporter",
+    "ExportConfig",
 ]
