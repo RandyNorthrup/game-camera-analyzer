@@ -6,6 +6,7 @@ from core.classification_engine import (
     SpeciesDatabase,
     SpeciesInfo,
 )
+from core.cropping_engine import CropConfig, CropResult, CroppingEngine
 from core.detection_engine import DetectionEngine, DetectionResult
 
 __all__ = [
@@ -15,4 +16,7 @@ __all__ = [
     "ClassificationResult",
     "SpeciesDatabase",
     "SpeciesInfo",
+    "CroppingEngine",
+    "CropConfig",
+    "CropResult",
 ]
