@@ -17,6 +17,7 @@ import pytest
 
 from core.detection_engine import DetectionEngine, DetectionResult
 from models.model_manager import ModelManager
+from utils.validators import ValidationError
 
 logger = logging.getLogger(__name__)
 
@@ -51,18 +52,18 @@ class TestDetectionEngine:
 
     def test_invalid_confidence_threshold(self) -> None:
         """Test that invalid confidence threshold raises error."""
-        with pytest.raises(ValueError, match="Confidence threshold must be between"):
+        with pytest.raises(ValidationError, match="Confidence threshold must be between"):
             DetectionEngine(confidence_threshold=1.5)
 
-        with pytest.raises(ValueError, match="Confidence threshold must be between"):
+        with pytest.raises(ValidationError, match="Confidence threshold must be between"):
             DetectionEngine(confidence_threshold=-0.1)
 
     def test_invalid_iou_threshold(self) -> None:
         """Test that invalid IoU threshold raises error."""
-        with pytest.raises(ValueError, match="IoU threshold must be between"):
+        with pytest.raises(ValidationError, match="IoU threshold must be between"):
             DetectionEngine(iou_threshold=1.5)
 
-        with pytest.raises(ValueError, match="IoU threshold must be between"):
+        with pytest.raises(ValidationError, match="IoU threshold must be between"):
             DetectionEngine(iou_threshold=-0.1)
 
     @pytest.mark.slow

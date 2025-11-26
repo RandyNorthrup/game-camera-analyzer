@@ -218,6 +218,9 @@ def setup_environment(args: argparse.Namespace) -> None:
 def run_cli_mode(input_path: Path) -> int:
     """
     Run application in command-line mode (batch processing).
+    
+    Note: CLI mode is planned for future release. Currently, the GUI mode
+    provides full functionality for batch processing.
 
     Args:
         input_path: Path to input file or directory
@@ -225,34 +228,31 @@ def run_cli_mode(input_path: Path) -> int:
     Returns:
         Exit code (0 for success, non-zero for failure)
     """
-    logger.info("Starting CLI mode")
-    logger.info(f"Input: {input_path}")
-
-    try:
-        from utils.validators import validate_file_exists
-
-        # Validate input
-        input_path = validate_file_exists(input_path, "input")
-
-        if input_path.is_file():
-            logger.info("Processing single file")
-            # TODO: Implement single file processing
-            logger.warning("CLI mode not yet implemented - coming in Phase 2")
-            return 0
-
-        elif input_path.is_dir():
-            logger.info("Processing directory")
-            # TODO: Implement batch processing
-            logger.warning("CLI mode not yet implemented - coming in Phase 2")
-            return 0
-
-        else:
-            logger.error(f"Invalid input path: {input_path}")
-            return 1
-
-    except Exception as e:
-        logger.error(f"CLI processing failed: {e}", exc_info=True)
-        return 1
+    logger.info("CLI mode requested")
+    logger.warning(
+        "CLI mode is not yet implemented. "
+        "Please use GUI mode for batch processing: python main.py"
+    )
+    logger.info("GUI mode provides full batch processing capabilities with:")
+    logger.info("  - Visual progress tracking")
+    logger.info("  - Error recovery")
+    logger.info("  - Real-time results preview")
+    logger.info("  - Configurable settings")
+    
+    print("\n" + "="*60)
+    print("CLI Mode Not Available")
+    print("="*60)
+    print("\nPlease run without arguments to use GUI mode:")
+    print("  python main.py")
+    print("\nThe GUI supports:")
+    print("  • Batch processing of directories")
+    print("  • Single file processing")
+    print("  • Real-time progress tracking")
+    print("  • CSV export")
+    print("  • Configurable detection and classification settings")
+    print("="*60 + "\n")
+    
+    return 1
 
 
 def run_gui_mode() -> int:
