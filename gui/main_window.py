@@ -13,7 +13,7 @@ import logging
 from pathlib import Path
 from typing import Optional
 
-from PySide6.QtCore import QThread, Signal
+from PySide6.QtCore import QThread, Qt, Signal
 from PySide6.QtWidgets import (
     QFileDialog,
     QGroupBox,
@@ -28,8 +28,9 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from config import get_config_manager
+from config import ConfigManager, get_config_manager
 from core.batch_processor import BatchConfig, BatchProcessor, BatchProgress
+from gui.settings_dialog import SettingsDialog
 
 logger = logging.getLogger(__name__)
 
@@ -72,22 +73,13 @@ class ProcessingThread(QThread):
         try:
             logger.info(f"Starting background processing: {self.input_path}")
 
-            # Set up progress callback
-            def progress_callback(progress: BatchProgress) -> None:
-                if self._is_running:
-                    self.progress_updated.emit(progress)
-
             # Process based on input type
             if self.input_path.is_file():
-                progress = self.processor.process_image(
-                    self.input_path,
-                    progress_callback=progress_callback,
-                )
+                # Process single file
+                progress = self.processor.process_images([self.input_path])
             else:
-                progress = self.processor.process_directory(
-                    self.input_path,
-                    progress_callback=progress_callback,
-                )
+                # Process directory
+                progress = self.processor.process_directory(self.input_path)
 
             if self._is_running:
                 self.processing_complete.emit(progress)
@@ -307,7 +299,7 @@ class MainWindow(QMainWindow):
                     save_path = str(self.input_path)
 
                 self.config_manager.set_value("gui.last_directory", save_path)
-                self.config_manager.save()
+                self.config_manager.save_user_config()
 
             logger.debug("Settings saved successfully")
 
@@ -398,26 +390,42 @@ class MainWindow(QMainWindow):
 
         try:
             # Create batch config from settings
-            config = BatchConfig(
+            batch_config = BatchConfig(
                 detect=True,
                 classify=True,
                 crop=True,
-                export_csv=True,
+                export_csv=self.config_manager.get_value("output.export_csv", True),
                 save_annotated=self.config_manager.get_value(
                     "output.save_annotated", False
                 ),
-                stop_on_error=False,
+                continue_on_error=True,
             )
 
-            # Get output directory
+            # Get configuration values
             output_dir = Path(
                 self.config_manager.get_value("output.base_dir", "./output")
+            )
+            species_db_path = self.config_manager.get_value(
+                "classification.species_db", "data/species_db.json"
+            )
+            detection_conf = self.config_manager.get_value(
+                "detection.confidence_threshold", 0.25
+            )
+            classification_conf = self.config_manager.get_value(
+                "classification.threshold", 0.5
+            )
+            use_features = self.config_manager.get_value(
+                "classification.use_feature_classifier", False
             )
 
             # Create processor
             self.processor = BatchProcessor(
                 output_dir=output_dir,
-                config=config,
+                species_db_path=species_db_path,
+                batch_config=batch_config,
+                detection_confidence=detection_conf,
+                classification_confidence=classification_conf,
+                use_feature_classifier=use_features,
             )
 
             # Create and start processing thread
@@ -480,17 +488,17 @@ class MainWindow(QMainWindow):
             status_text = (
                 f"Processing: {progress.processed_images}/{progress.total_images} images"
             )
-            if progress.current_file:
-                status_text += f" - {progress.current_file.name}"
+            if progress.current_image:
+                status_text += f" - {progress.current_image}"
             self.status_label.setText(status_text)
 
             # Update details
             elapsed = progress.get_elapsed_time()
-            eta = progress.get_eta()
-            speed = progress.get_processing_speed()
+            eta = progress.get_estimated_remaining()
+            speed = progress.processed_images / elapsed if elapsed > 0 else 0
 
             details = f"Elapsed: {elapsed:.1f}s"
-            if eta > 0:
+            if eta and eta > 0:
                 details += f" | ETA: {eta:.1f}s"
             if speed > 0:
                 details += f" | Speed: {speed:.2f} img/s"
@@ -574,13 +582,27 @@ class MainWindow(QMainWindow):
 
     def _on_open_settings(self) -> None:
         """Handle settings button."""
-        # TODO: Implement settings dialog in next phase
-        QMessageBox.information(
-            self,
-            "Settings",
-            "Settings dialog coming soon!\n\n"
-            "Current settings can be modified in config files.",
-        )
+        try:
+            dialog = SettingsDialog(self.config_manager, self)
+            result = dialog.exec()
+
+            if result == SettingsDialog.DialogCode.Accepted:
+                if dialog.has_changes():
+                    logger.info("Settings updated")
+                    QMessageBox.information(
+                        self,
+                        "Settings Saved",
+                        "Settings have been saved successfully.\n\n"
+                        "New settings will be applied to the next processing run.",
+                    )
+
+        except Exception as e:
+            logger.error(f"Failed to open settings dialog: {e}", exc_info=True)
+            QMessageBox.critical(
+                self,
+                "Settings Error",
+                f"Failed to open settings: {e}",
+            )
 
     def _reset_ui_state(self) -> None:
         """Reset UI to ready state."""
