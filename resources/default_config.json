@@ -1,0 +1,64 @@
+{
+  "application": {
+    "name": "Game Camera Analyzer",
+    "version": "0.1.0",
+    "data_dir": "~/.game_camera_analyzer"
+  },
+  "detection": {
+    "model": "yolov8m.pt",
+    "confidence_threshold": 0.25,
+    "iou_threshold": 0.45,
+    "max_detections": 20,
+    "input_size": 640,
+    "device": "auto"
+  },
+  "classification": {
+    "model": "efficientnet_b0",
+    "confidence_threshold": 0.7,
+    "top_k": 5
+  },
+  "processing": {
+    "batch_size": 8,
+    "num_workers": 4,
+    "use_gpu": true,
+    "cache_models": true
+  },
+  "cropping": {
+    "strategy": "context",
+    "padding_ratio": 0.15,
+    "min_size": 224,
+    "max_size": 1024,
+    "square_crop": false
+  },
+  "output": {
+    "base_dir": "output",
+    "organize_by_species": true,
+    "organize_by_date": true,
+    "organize_by_camera": true,
+    "create_thumbnails": true,
+    "thumbnail_size": 256,
+    "save_metadata_json": false,
+    "export_csv": true
+  },
+  "csv_export": {
+    "master_filename": "detections_master.csv",
+    "summary_filename": "species_summary.csv",
+    "include_gps": true,
+    "include_exif": true
+  },
+  "logging": {
+    "level": "INFO",
+    "console_level": "INFO",
+    "file_level": "DEBUG",
+    "max_log_size_mb": 10,
+    "backup_count": 5
+  },
+  "gui": {
+    "theme": "default",
+    "window_width": 1280,
+    "window_height": 800,
+    "remember_window_size": true,
+    "show_confidence_scores": true,
+    "auto_process": false
+  }
+}
