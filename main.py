@@ -275,29 +275,13 @@ def run_gui_mode() -> int:
         app.setOrganizationDomain("github.com/RandyNorthrup")
 
         # Import and create main window
-        # TODO: Implement main window in Phase 6
-        logger.warning("GUI not yet implemented - coming in Phase 6")
-        logger.info("For now, please use --cli mode with --input option")
+        from gui.main_window import MainWindow
 
-        # Placeholder message
-        from PySide6.QtWidgets import QMessageBox
+        window = MainWindow()
+        window.show()
 
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Icon.Information)
-        msg.setWindowTitle("Game Camera Analyzer")
-        msg.setText("GUI Coming Soon!")
-        msg.setInformativeText(
-            "The graphical interface is under development.\n\n"
-            "Current status:\n"
-            "✅ Phase 1: Foundation (Complete)\n"
-            "🔄 Phase 2: Detection Engine (Next)\n"
-            "⏳ Phase 6: GUI (Planned)\n\n"
-            "For now, please check back soon or use CLI mode."
-        )
-        msg.setStandardButtons(QMessageBox.StandardButton.Ok)
-        msg.exec()
-
-        return 0
+        logger.info("GUI launched successfully")
+        return app.exec()
 
     except ImportError as e:
         logger.error(f"Failed to import GUI dependencies: {e}")
