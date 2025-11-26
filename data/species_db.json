@@ -23,9 +23,22 @@
       },
       "conservation_status": "Least Concern",
       "description": "Large deer native to western North America, distinguished by large mule-like ears",
-      "aliases": ["black-tailed deer", "muley"],
-      "habitat": ["forest", "chaparral", "grassland", "mountain"],
-      "activity_pattern": "crepuscular"
+      "aliases": [
+        "black-tailed deer",
+        "muley"
+      ],
+      "habitat": [
+        "forest",
+        "chaparral",
+        "grassland",
+        "mountain"
+      ],
+      "activity_pattern": "crepuscular",
+      "yolo_mappings": [
+        "horse",
+        "cow",
+        "sheep"
+      ]
     },
     {
       "species_id": "black_bear",
@@ -43,9 +56,18 @@
       },
       "conservation_status": "Least Concern",
       "description": "Medium-sized bear native to North America, common in California forests",
-      "aliases": ["American black bear"],
-      "habitat": ["forest", "woodland", "mountain"],
-      "activity_pattern": "crepuscular"
+      "aliases": [
+        "American black bear"
+      ],
+      "habitat": [
+        "forest",
+        "woodland",
+        "mountain"
+      ],
+      "activity_pattern": "crepuscular",
+      "yolo_mappings": [
+        "bear"
+      ]
     },
     {
       "species_id": "mountain_lion",
@@ -63,9 +85,22 @@
       },
       "conservation_status": "Least Concern",
       "description": "Large cat native to the Americas, apex predator in California",
-      "aliases": ["cougar", "puma", "catamount", "panther"],
-      "habitat": ["forest", "mountain", "chaparral", "desert"],
-      "activity_pattern": "crepuscular"
+      "aliases": [
+        "cougar",
+        "puma",
+        "catamount",
+        "panther"
+      ],
+      "habitat": [
+        "forest",
+        "mountain",
+        "chaparral",
+        "desert"
+      ],
+      "activity_pattern": "crepuscular",
+      "yolo_mappings": [
+        "cat"
+      ]
     },
     {
       "species_id": "coyote",
@@ -83,9 +118,20 @@
       },
       "conservation_status": "Least Concern",
       "description": "Highly adaptable canid found throughout California",
-      "aliases": ["prairie wolf", "brush wolf"],
-      "habitat": ["grassland", "desert", "chaparral", "urban"],
-      "activity_pattern": "crepuscular"
+      "aliases": [
+        "prairie wolf",
+        "brush wolf"
+      ],
+      "habitat": [
+        "grassland",
+        "desert",
+        "chaparral",
+        "urban"
+      ],
+      "activity_pattern": "crepuscular",
+      "yolo_mappings": [
+        "dog"
+      ]
     },
     {
       "species_id": "gray_fox",
@@ -103,9 +149,19 @@
       },
       "conservation_status": "Least Concern",
       "description": "Small omnivorous fox capable of climbing trees, common in California",
-      "aliases": ["tree fox"],
-      "habitat": ["woodland", "chaparral", "forest"],
-      "activity_pattern": "nocturnal"
+      "aliases": [
+        "tree fox"
+      ],
+      "habitat": [
+        "woodland",
+        "chaparral",
+        "forest"
+      ],
+      "activity_pattern": "nocturnal",
+      "yolo_mappings": [
+        "dog",
+        "cat"
+      ]
     },
     {
       "species_id": "bobcat",
@@ -123,9 +179,20 @@
       },
       "conservation_status": "Least Concern",
       "description": "Medium-sized cat with distinctive short tail, widespread in California",
-      "aliases": ["wildcat", "bay lynx"],
-      "habitat": ["forest", "chaparral", "woodland", "desert"],
-      "activity_pattern": "crepuscular"
+      "aliases": [
+        "wildcat",
+        "bay lynx"
+      ],
+      "habitat": [
+        "forest",
+        "chaparral",
+        "woodland",
+        "desert"
+      ],
+      "activity_pattern": "crepuscular",
+      "yolo_mappings": [
+        "cat"
+      ]
     },
     {
       "species_id": "raccoon",
@@ -143,9 +210,20 @@
       },
       "conservation_status": "Least Concern",
       "description": "Highly intelligent omnivore with distinctive facial mask",
-      "aliases": ["common raccoon"],
-      "habitat": ["forest", "urban", "wetland", "riparian"],
-      "activity_pattern": "nocturnal"
+      "aliases": [
+        "common raccoon"
+      ],
+      "habitat": [
+        "forest",
+        "urban",
+        "wetland",
+        "riparian"
+      ],
+      "activity_pattern": "nocturnal",
+      "yolo_mappings": [
+        "cat",
+        "dog"
+      ]
     },
     {
       "species_id": "striped_skunk",
@@ -163,9 +241,19 @@
       },
       "conservation_status": "Least Concern",
       "description": "Black and white omnivore known for defensive spray",
-      "aliases": ["polecat"],
-      "habitat": ["grassland", "woodland", "urban", "chaparral"],
-      "activity_pattern": "nocturnal"
+      "aliases": [
+        "polecat"
+      ],
+      "habitat": [
+        "grassland",
+        "woodland",
+        "urban",
+        "chaparral"
+      ],
+      "activity_pattern": "nocturnal",
+      "yolo_mappings": [
+        "cat"
+      ]
     },
     {
       "species_id": "western_gray_squirrel",
@@ -183,9 +271,17 @@
       },
       "conservation_status": "Near Threatened",
       "description": "Large tree squirrel native to California oak woodlands",
-      "aliases": ["California gray squirrel"],
-      "habitat": ["oak woodland", "mixed forest"],
-      "activity_pattern": "diurnal"
+      "aliases": [
+        "California gray squirrel"
+      ],
+      "habitat": [
+        "oak woodland",
+        "mixed forest"
+      ],
+      "activity_pattern": "diurnal",
+      "yolo_mappings": [
+        "bird"
+      ]
     },
     {
       "species_id": "california_ground_squirrel",
@@ -203,9 +299,18 @@
       },
       "conservation_status": "Least Concern",
       "description": "Common ground-dwelling squirrel found throughout California",
-      "aliases": ["Beechey ground squirrel"],
-      "habitat": ["grassland", "chaparral", "oak woodland"],
-      "activity_pattern": "diurnal"
+      "aliases": [
+        "Beechey ground squirrel"
+      ],
+      "habitat": [
+        "grassland",
+        "chaparral",
+        "oak woodland"
+      ],
+      "activity_pattern": "diurnal",
+      "yolo_mappings": [
+        "bird"
+      ]
     },
     {
       "species_id": "wild_turkey",
@@ -223,9 +328,18 @@
       },
       "conservation_status": "Least Concern",
       "description": "Large ground-dwelling bird, introduced and now common in California",
-      "aliases": ["turkey"],
-      "habitat": ["oak woodland", "grassland", "forest edge"],
-      "activity_pattern": "diurnal"
+      "aliases": [
+        "turkey"
+      ],
+      "habitat": [
+        "oak woodland",
+        "grassland",
+        "forest edge"
+      ],
+      "activity_pattern": "diurnal",
+      "yolo_mappings": [
+        "bird"
+      ]
     },
     {
       "species_id": "california_quail",
@@ -243,9 +357,18 @@
       },
       "conservation_status": "Least Concern",
       "description": "State bird of California, small ground-dwelling bird with distinctive plume",
-      "aliases": ["valley quail"],
-      "habitat": ["chaparral", "woodland", "grassland"],
-      "activity_pattern": "diurnal"
+      "aliases": [
+        "valley quail"
+      ],
+      "habitat": [
+        "chaparral",
+        "woodland",
+        "grassland"
+      ],
+      "activity_pattern": "diurnal",
+      "yolo_mappings": [
+        "bird"
+      ]
     },
     {
       "species_id": "wild_pig",
@@ -263,9 +386,22 @@
       },
       "conservation_status": "Least Concern",
       "description": "Non-native invasive species causing ecological damage in California",
-      "aliases": ["feral pig", "wild boar", "feral hog"],
-      "habitat": ["forest", "grassland", "chaparral", "oak woodland"],
-      "activity_pattern": "crepuscular"
+      "aliases": [
+        "feral pig",
+        "wild boar",
+        "feral hog"
+      ],
+      "habitat": [
+        "forest",
+        "grassland",
+        "chaparral",
+        "oak woodland"
+      ],
+      "activity_pattern": "crepuscular",
+      "yolo_mappings": [
+        "sheep",
+        "cow"
+      ]
     },
     {
       "species_id": "roosevelt_elk",
@@ -283,9 +419,19 @@
       },
       "conservation_status": "Least Concern",
       "description": "Largest of North American elk subspecies, found in Northern California",
-      "aliases": ["Olympic elk"],
-      "habitat": ["forest", "grassland", "coastal prairie"],
-      "activity_pattern": "crepuscular"
+      "aliases": [
+        "Olympic elk"
+      ],
+      "habitat": [
+        "forest",
+        "grassland",
+        "coastal prairie"
+      ],
+      "activity_pattern": "crepuscular",
+      "yolo_mappings": [
+        "horse",
+        "cow"
+      ]
     },
     {
       "species_id": "tule_elk",
@@ -303,9 +449,19 @@
       },
       "conservation_status": "Near Threatened",
       "description": "Smallest elk subspecies, endemic to California",
-      "aliases": ["dwarf elk"],
-      "habitat": ["grassland", "oak woodland", "wetland"],
-      "activity_pattern": "crepuscular"
+      "aliases": [
+        "dwarf elk"
+      ],
+      "habitat": [
+        "grassland",
+        "oak woodland",
+        "wetland"
+      ],
+      "activity_pattern": "crepuscular",
+      "yolo_mappings": [
+        "horse",
+        "cow"
+      ]
     },
     {
       "species_id": "virginia_opossum",
@@ -323,9 +479,20 @@
       },
       "conservation_status": "Least Concern",
       "description": "North America's only marsupial, introduced to California",
-      "aliases": ["opossum", "possum"],
-      "habitat": ["forest", "woodland", "urban", "riparian"],
-      "activity_pattern": "nocturnal"
+      "aliases": [
+        "opossum",
+        "possum"
+      ],
+      "habitat": [
+        "forest",
+        "woodland",
+        "urban",
+        "riparian"
+      ],
+      "activity_pattern": "nocturnal",
+      "yolo_mappings": [
+        "cat"
+      ]
     },
     {
       "species_id": "badger",
@@ -343,9 +510,19 @@
       },
       "conservation_status": "Least Concern",
       "description": "Powerful burrowing carnivore found in open habitats",
-      "aliases": ["badger"],
-      "habitat": ["grassland", "desert", "chaparral"],
-      "activity_pattern": "nocturnal"
+      "aliases": [
+        "badger"
+      ],
+      "habitat": [
+        "grassland",
+        "desert",
+        "chaparral"
+      ],
+      "activity_pattern": "nocturnal",
+      "yolo_mappings": [
+        "dog",
+        "cat"
+      ]
     },
     {
       "species_id": "ringtail",
@@ -363,9 +540,19 @@
       },
       "conservation_status": "Least Concern",
       "description": "Small nocturnal carnivore with distinctive ringed tail",
-      "aliases": ["ringtail cat", "miner's cat"],
-      "habitat": ["rocky terrain", "chaparral", "woodland"],
-      "activity_pattern": "nocturnal"
+      "aliases": [
+        "ringtail cat",
+        "miner's cat"
+      ],
+      "habitat": [
+        "rocky terrain",
+        "chaparral",
+        "woodland"
+      ],
+      "activity_pattern": "nocturnal",
+      "yolo_mappings": [
+        "cat"
+      ]
     },
     {
       "species_id": "long_tailed_weasel",
@@ -383,9 +570,18 @@
       },
       "conservation_status": "Least Concern",
       "description": "Small carnivore with elongated body and long tail",
-      "aliases": ["weasel"],
-      "habitat": ["grassland", "woodland", "riparian"],
-      "activity_pattern": "nocturnal"
+      "aliases": [
+        "weasel"
+      ],
+      "habitat": [
+        "grassland",
+        "woodland",
+        "riparian"
+      ],
+      "activity_pattern": "nocturnal",
+      "yolo_mappings": [
+        "cat"
+      ]
     },
     {
       "species_id": "spotted_skunk",
@@ -403,9 +599,18 @@
       },
       "conservation_status": "Vulnerable",
       "description": "Small skunk with distinctive spotted pattern, declining in California",
-      "aliases": ["civet cat"],
-      "habitat": ["chaparral", "woodland", "grassland"],
-      "activity_pattern": "nocturnal"
+      "aliases": [
+        "civet cat"
+      ],
+      "habitat": [
+        "chaparral",
+        "woodland",
+        "grassland"
+      ],
+      "activity_pattern": "nocturnal",
+      "yolo_mappings": [
+        "cat"
+      ]
     },
     {
       "species_id": "desert_bighorn_sheep",
@@ -423,9 +628,18 @@
       },
       "conservation_status": "Least Concern",
       "description": "Mountain sheep adapted to desert environments in Southern California",
-      "aliases": ["Nelson's bighorn sheep"],
-      "habitat": ["desert mountain", "rocky terrain"],
-      "activity_pattern": "diurnal"
+      "aliases": [
+        "Nelson's bighorn sheep"
+      ],
+      "habitat": [
+        "desert mountain",
+        "rocky terrain"
+      ],
+      "activity_pattern": "diurnal",
+      "yolo_mappings": [
+        "sheep",
+        "horse"
+      ]
     },
     {
       "species_id": "pronghorn",
@@ -443,9 +657,15 @@
       },
       "conservation_status": "Least Concern",
       "description": "North America's fastest land animal, found in northeastern California",
-      "aliases": ["American antelope"],
-      "habitat": ["grassland", "sagebrush"],
-      "activity_pattern": "diurnal"
+      "aliases": [
+        "American antelope"
+      ],
+      "habitat": [
+        "grassland",
+        "sagebrush"
+      ],
+      "activity_pattern": "diurnal",
+      "yolo_mappings": []
     },
     {
       "species_id": "black_tailed_jackrabbit",
@@ -463,9 +683,16 @@
       },
       "conservation_status": "Least Concern",
       "description": "Large hare with distinctive long ears and black tail tip",
-      "aliases": ["California jackrabbit"],
-      "habitat": ["grassland", "desert", "chaparral"],
-      "activity_pattern": "crepuscular"
+      "aliases": [
+        "California jackrabbit"
+      ],
+      "habitat": [
+        "grassland",
+        "desert",
+        "chaparral"
+      ],
+      "activity_pattern": "crepuscular",
+      "yolo_mappings": []
     },
     {
       "species_id": "brush_rabbit",
@@ -483,9 +710,15 @@
       },
       "conservation_status": "Least Concern",
       "description": "Small rabbit endemic to California and Oregon",
-      "aliases": ["western brush rabbit"],
-      "habitat": ["chaparral", "woodland"],
-      "activity_pattern": "crepuscular"
+      "aliases": [
+        "western brush rabbit"
+      ],
+      "habitat": [
+        "chaparral",
+        "woodland"
+      ],
+      "activity_pattern": "crepuscular",
+      "yolo_mappings": []
     },
     {
       "species_id": "desert_cottontail",
@@ -503,9 +736,16 @@
       },
       "conservation_status": "Least Concern",
       "description": "Cottontail rabbit adapted to arid environments",
-      "aliases": ["Audubon's cottontail"],
-      "habitat": ["desert", "grassland", "chaparral"],
-      "activity_pattern": "crepuscular"
+      "aliases": [
+        "Audubon's cottontail"
+      ],
+      "habitat": [
+        "desert",
+        "grassland",
+        "chaparral"
+      ],
+      "activity_pattern": "crepuscular",
+      "yolo_mappings": []
     },
     {
       "species_id": "kit_fox",
@@ -523,9 +763,15 @@
       },
       "conservation_status": "Least Concern",
       "description": "Small desert fox with large ears, endangered in California",
-      "aliases": ["swift fox"],
-      "habitat": ["desert", "grassland"],
-      "activity_pattern": "nocturnal"
+      "aliases": [
+        "swift fox"
+      ],
+      "habitat": [
+        "desert",
+        "grassland"
+      ],
+      "activity_pattern": "nocturnal",
+      "yolo_mappings": []
     },
     {
       "species_id": "san_joaquin_kit_fox",
@@ -543,9 +789,15 @@
       },
       "conservation_status": "Endangered",
       "description": "Endangered subspecies endemic to California's San Joaquin Valley",
-      "aliases": ["valley kit fox"],
-      "habitat": ["grassland", "agricultural land"],
-      "activity_pattern": "nocturnal"
+      "aliases": [
+        "valley kit fox"
+      ],
+      "habitat": [
+        "grassland",
+        "agricultural land"
+      ],
+      "activity_pattern": "nocturnal",
+      "yolo_mappings": []
     },
     {
       "species_id": "river_otter",
@@ -563,9 +815,17 @@
       },
       "conservation_status": "Least Concern",
       "description": "Semi-aquatic carnivore found in California waterways",
-      "aliases": ["river otter"],
-      "habitat": ["riparian", "wetland", "lake", "coastal"],
-      "activity_pattern": "diurnal"
+      "aliases": [
+        "river otter"
+      ],
+      "habitat": [
+        "riparian",
+        "wetland",
+        "lake",
+        "coastal"
+      ],
+      "activity_pattern": "diurnal",
+      "yolo_mappings": []
     },
     {
       "species_id": "marten",
@@ -583,9 +843,15 @@
       },
       "conservation_status": "Least Concern",
       "description": "Forest-dwelling carnivore found in Northern California mountains",
-      "aliases": ["coastal marten"],
-      "habitat": ["old-growth forest", "mountain"],
-      "activity_pattern": "crepuscular"
+      "aliases": [
+        "coastal marten"
+      ],
+      "habitat": [
+        "old-growth forest",
+        "mountain"
+      ],
+      "activity_pattern": "crepuscular",
+      "yolo_mappings": []
     },
     {
       "species_id": "fisher",
@@ -603,9 +869,16 @@
       },
       "conservation_status": "Least Concern",
       "description": "Large arboreal carnivore, reintroduced to parts of California",
-      "aliases": ["fisher cat", "black cat"],
-      "habitat": ["old-growth forest", "mixed forest"],
-      "activity_pattern": "nocturnal"
+      "aliases": [
+        "fisher cat",
+        "black cat"
+      ],
+      "habitat": [
+        "old-growth forest",
+        "mixed forest"
+      ],
+      "activity_pattern": "nocturnal",
+      "yolo_mappings": []
     },
     {
       "species_id": "california_kangaroo_rat",
@@ -623,9 +896,16 @@
       },
       "conservation_status": "Least Concern",
       "description": "Small hopping rodent adapted to arid environments",
-      "aliases": ["kangaroo rat"],
-      "habitat": ["grassland", "chaparral", "oak woodland"],
-      "activity_pattern": "nocturnal"
+      "aliases": [
+        "kangaroo rat"
+      ],
+      "habitat": [
+        "grassland",
+        "chaparral",
+        "oak woodland"
+      ],
+      "activity_pattern": "nocturnal",
+      "yolo_mappings": []
     },
     {
       "species_id": "woodrat",
@@ -643,9 +923,17 @@
       },
       "conservation_status": "Least Concern",
       "description": "Large rodent known for building elaborate stick nests",
-      "aliases": ["packrat", "trade rat"],
-      "habitat": ["chaparral", "oak woodland", "forest"],
-      "activity_pattern": "nocturnal"
+      "aliases": [
+        "packrat",
+        "trade rat"
+      ],
+      "habitat": [
+        "chaparral",
+        "oak woodland",
+        "forest"
+      ],
+      "activity_pattern": "nocturnal",
+      "yolo_mappings": []
     },
     {
       "species_id": "common_raven",
@@ -663,9 +951,14 @@
       },
       "conservation_status": "Least Concern",
       "description": "Highly intelligent large corvid found throughout California",
-      "aliases": ["raven"],
-      "habitat": ["varied - found in most habitats"],
-      "activity_pattern": "diurnal"
+      "aliases": [
+        "raven"
+      ],
+      "habitat": [
+        "varied - found in most habitats"
+      ],
+      "activity_pattern": "diurnal",
+      "yolo_mappings": []
     },
     {
       "species_id": "roadrunner",
@@ -683,9 +976,16 @@
       },
       "conservation_status": "Least Concern",
       "description": "Fast-running ground cuckoo found in Southern California",
-      "aliases": ["chaparral cock"],
-      "habitat": ["desert", "chaparral", "grassland"],
-      "activity_pattern": "diurnal"
+      "aliases": [
+        "chaparral cock"
+      ],
+      "habitat": [
+        "desert",
+        "chaparral",
+        "grassland"
+      ],
+      "activity_pattern": "diurnal",
+      "yolo_mappings": []
     },
     {
       "species_id": "unknown",
@@ -703,9 +1003,15 @@
       },
       "conservation_status": "Unknown",
       "description": "Unidentified animal or low-confidence detection",
-      "aliases": ["unidentified", "other"],
-      "habitat": ["varied"],
-      "activity_pattern": "unknown"
+      "aliases": [
+        "unidentified",
+        "other"
+      ],
+      "habitat": [
+        "varied"
+      ],
+      "activity_pattern": "unknown",
+      "yolo_mappings": []
     }
   ]
 }
