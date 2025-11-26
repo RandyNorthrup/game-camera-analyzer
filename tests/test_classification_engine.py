@@ -12,16 +12,20 @@ Tests cover:
 
 import logging
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 import numpy as np
 import pytest
+from numpy.typing import NDArray
 
 from core.classification_engine import (
     ClassificationEngine,
     ClassificationResult,
+    SpeciesDatabase,
 )
-from core.detection_engine import Detection
+from models.yolo_detector import Detection
+from utils.image_utils import load_image
+from utils.validators import ValidationError
 
 logger = logging.getLogger(__name__)
 
@@ -66,7 +70,7 @@ class TestClassificationEngine:
 
     def test_invalid_confidence_threshold(self, species_db_path: Path) -> None:
         """Test that invalid confidence threshold raises error."""
-        with pytest.raises(ValueError, match="Confidence threshold"):
+        with pytest.raises(ValidationError, match="Confidence threshold"):
             ClassificationEngine(
                 species_db_path=species_db_path,
                 confidence_threshold=1.5,
@@ -74,7 +78,7 @@ class TestClassificationEngine:
 
     def test_invalid_species_db_path(self) -> None:
         """Test that invalid species DB path raises error."""
-        with pytest.raises(FileNotFoundError):
+        with pytest.raises(ValidationError):
             ClassificationEngine(species_db_path=Path("nonexistent.json"))
 
     def test_species_database_loading(self, species_db_path: Path) -> None:
@@ -90,8 +94,9 @@ class TestClassificationEngine:
         assert len(engine.species_db) > 0
 
         # Check expected California wildlife
-        species_ids = [s["species_id"] for s in engine.species_db]
-        assert "black_tailed_deer" in species_ids
+        all_species = engine.species_db.get_all_species()
+        species_ids = [s.species_id for s in all_species]
+        assert "mule_deer" in species_ids
         assert "coyote" in species_ids
         assert "bobcat" in species_ids
 
@@ -108,16 +113,16 @@ class TestClassificationEngine:
 
         # Test known mappings
         # Bear -> Black bear
-        bear_species = engine.get_species_by_yolo_class("bear")
+        bear_species = engine.species_db.find_by_yolo_class("bear")
         assert len(bear_species) > 0
-        assert any(s["species_id"] == "black_bear" for s in bear_species)
+        assert any(s.species_id == "black_bear" for s in bear_species)
 
         # Cat -> Multiple feline species
-        cat_species = engine.get_species_by_yolo_class("cat")
+        cat_species = engine.species_db.find_by_yolo_class("cat")
         assert len(cat_species) > 0
 
         # Unknown class should return empty list
-        unknown_species = engine.get_species_by_yolo_class("unknown_class_xyz")
+        unknown_species = engine.species_db.find_by_yolo_class("unknown_class_xyz")
         assert len(unknown_species) == 0
 
         logger.info("YOLO class mappings validated")
@@ -135,16 +140,19 @@ class TestClassificationEngine:
             sample_image: Path to test image
         """
         engine = ClassificationEngine(species_db_path=species_db_path)
+        
+        # Load image as array
+        img_array, _ = load_image(sample_image, color_mode="RGB")
 
         # Create mock detection
         detection = Detection(
-            bbox=np.array([100.0, 100.0, 300.0, 300.0]),
+            bbox=(100, 100, 300, 300),
             confidence=0.85,
             class_id=15,  # cat in COCO
             class_name="cat",
         )
 
-        result = engine.classify_detection(sample_image, detection)
+        result: Optional[ClassificationResult] = engine.classify_detection(detection, img_array)
 
         if result is not None:
             assert isinstance(result, ClassificationResult)
@@ -178,15 +186,18 @@ class TestClassificationEngine:
             species_db_path=species_db_path,
             confidence_threshold=0.95,
         )
+        
+        # Load image
+        img_array, _ = load_image(sample_image, color_mode="RGB")
 
         detection = Detection(
-            bbox=np.array([100.0, 100.0, 200.0, 200.0]),
+            bbox=(100, 100, 200, 200),
             confidence=0.5,
             class_id=15,
             class_name="cat",
         )
 
-        result = engine.classify_detection(sample_image, detection)
+        result = engine.classify_detection(detection, img_array)
 
         # With high threshold and YOLO-only classification, likely returns None
         # or a result below threshold
@@ -208,24 +219,29 @@ class TestClassificationEngine:
             sample_image: Path to test image
         """
         engine = ClassificationEngine(species_db_path=species_db_path)
+        
+        # Load image
+        img_array, _ = load_image(sample_image, color_mode="RGB")
 
         # Create multiple mock detections
         detections = [
             Detection(
-                bbox=np.array([50.0, 50.0, 150.0, 150.0]),
+                bbox=(50, 50, 150, 150),
                 confidence=0.8,
                 class_id=15,
                 class_name="cat",
             ),
             Detection(
-                bbox=np.array([200.0, 200.0, 350.0, 350.0]),
+                bbox=(200, 200, 350, 350),
                 confidence=0.75,
                 class_id=16,
                 class_name="dog",
             ),
         ]
 
-        results = engine.classify_batch(sample_image, detections)
+        # classify_batch expects List[Detection], List[NDArray]
+        images = [img_array, img_array]
+        results = engine.classify_batch(detections, images)
 
         assert isinstance(results, list)
         assert len(results) == len(detections)
@@ -242,7 +258,7 @@ class TestClassificationEngine:
         sample_image: Path,
     ) -> None:
         """
-        Test alternative species suggestions.
+        Test alternative species suggestions (alternative_matches).
 
         Args:
             species_db_path: Path to species database
@@ -250,26 +266,27 @@ class TestClassificationEngine:
         """
         engine = ClassificationEngine(
             species_db_path=species_db_path,
-            max_alternatives=3,
         )
+        
+        # Load image
+        img_array, _ = load_image(sample_image, color_mode="RGB")
 
         detection = Detection(
-            bbox=np.array([100.0, 100.0, 300.0, 300.0]),
+            bbox=(100, 100, 300, 300),
             confidence=0.85,
             class_id=15,
             class_name="cat",
         )
 
-        result = engine.classify_detection(sample_image, detection)
+        result = engine.classify_detection(detection, img_array)
 
-        if result is not None and result.alternatives:
-            assert len(result.alternatives) <= 3
-            for alt in result.alternatives:
-                assert "species_id" in alt
-                assert "confidence" in alt
-                assert 0.0 <= alt["confidence"] <= 1.0
+        if result is not None and result.alternative_matches:
+            # alternative_matches is List[Tuple[str, float]]
+            for species_id, alt_conf in result.alternative_matches:
+                assert isinstance(species_id, str)
+                assert 0.0 <= alt_conf <= 1.0
 
-            logger.info(f"Found {len(result.alternatives)} alternative species")
+            logger.info(f"Found {len(result.alternative_matches)} alternative species")
 
     def test_unknown_yolo_class(
         self,
@@ -284,16 +301,19 @@ class TestClassificationEngine:
             sample_image: Path to test image
         """
         engine = ClassificationEngine(species_db_path=species_db_path)
+        
+        # Load image
+        img_array, _ = load_image(sample_image, color_mode="RGB")
 
         # Unknown animal class
         detection = Detection(
-            bbox=np.array([100.0, 100.0, 200.0, 200.0]),
+            bbox=(100, 100, 200, 200),
             confidence=0.8,
             class_id=999,
             class_name="unknown_animal",
         )
 
-        result = engine.classify_detection(sample_image, detection)
+        result = engine.classify_detection(detection, img_array)
 
         # Should return None or handle gracefully
         if result is None:
@@ -301,40 +321,43 @@ class TestClassificationEngine:
         else:
             logger.info(f"Unknown class mapped to: {result.common_name}")
 
-    def test_classification_result_to_dict(
+    def test_classification_result_properties(
         self,
         species_db_path: Path,
         sample_image: Path,
     ) -> None:
         """
-        Test ClassificationResult dictionary conversion.
+        Test ClassificationResult properties (no to_dict method exists).
 
         Args:
             species_db_path: Path to species database
             sample_image: Path to test image
         """
         engine = ClassificationEngine(species_db_path=species_db_path)
+        
+        # Load image
+        img_array, _ = load_image(sample_image, color_mode="RGB")
 
         detection = Detection(
-            bbox=np.array([100.0, 100.0, 300.0, 300.0]),
+            bbox=(100, 100, 300, 300),
             confidence=0.85,
             class_id=16,
             class_name="dog",
         )
 
-        result = engine.classify_detection(sample_image, detection)
+        result = engine.classify_detection(detection, img_array)
 
         if result is not None:
-            result_dict = result.to_dict()
+            # Test that all expected attributes exist
+            assert hasattr(result, "species_id")
+            assert hasattr(result, "common_name")
+            assert hasattr(result, "scientific_name")
+            assert hasattr(result, "confidence")
+            assert hasattr(result, "yolo_class")
+            assert hasattr(result, "alternative_matches")
+            assert hasattr(result, "metadata")
 
-            assert isinstance(result_dict, dict)
-            assert "species_id" in result_dict
-            assert "common_name" in result_dict
-            assert "scientific_name" in result_dict
-            assert "confidence" in result_dict
-            assert "yolo_class" in result_dict
-
-            logger.info("Classification result dictionary validated")
+            logger.info("Classification result properties validated")
 
     def test_feature_classifier_initialization(
         self,
@@ -352,7 +375,8 @@ class TestClassificationEngine:
             use_feature_classifier=True,
         )
 
-        assert engine.feature_extractor is not None
+        # Correct attribute is feature_model not feature_extractor
+        assert engine.feature_model is not None
         logger.info("Feature classifier initialized successfully")
 
     def test_california_wildlife_coverage(self, species_db_path: Path) -> None:
@@ -365,9 +389,9 @@ class TestClassificationEngine:
         engine = ClassificationEngine(species_db_path=species_db_path)
 
         expected_species = [
-            "black_tailed_deer",
             "mule_deer",
-            "elk",
+            "roosevelt_elk",
+            "tule_elk",
             "black_bear",
             "mountain_lion",
             "coyote",
@@ -377,7 +401,9 @@ class TestClassificationEngine:
             "western_gray_squirrel",
         ]
 
-        species_ids = [s["species_id"] for s in engine.species_db]
+        # Get all species from database
+        all_species = engine.species_db.get_all_species()
+        species_ids = [s.species_id for s in all_species]
 
         for species in expected_species:
             assert species in species_ids, f"Missing species: {species}"

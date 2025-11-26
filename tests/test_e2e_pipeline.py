@@ -167,7 +167,7 @@ class TestEndToEndPipeline:
         )
 
         # Process all images
-        progress = processor.process_images(sample_images)
+        progress = processor.process_images(list(sample_images))
 
         # Verify all images processed
         assert progress.total_images == len(sample_images)
@@ -193,7 +193,7 @@ class TestEndToEndPipeline:
         logger.info(
             f"Batch E2E complete: {len(sample_images)} images, "
             f"{progress.total_detections} detections, "
-            f"{progress.elapsed_time:.2f}s"
+            f"{progress.get_elapsed_time():.2f}s"
         )
 
     def test_directory_processing(
@@ -286,7 +286,7 @@ class TestEndToEndPipeline:
         )
 
         # Process mixed images
-        progress = processor.process_images(mixed_images)
+        progress = processor.process_images(list(mixed_images))
 
         # Should process all images
         assert progress.processed_images == len(mixed_images)
@@ -328,8 +328,6 @@ class TestEndToEndPipeline:
 
         crop_config = CropConfig(
             padding=0.1,
-            organize_by_species=True,
-            organize_by_date=False,
         )
 
         processor = BatchProcessor(
@@ -448,10 +446,11 @@ class TestEndToEndPipeline:
             classification_confidence=0.3,
         )
 
-        progress = processor.process_images(sample_images)
+        progress = processor.process_images(list(sample_images))
 
         # Read and verify CSV
         csv_file = output_dir / "csv" / "batch_results.csv"
+        rows = []
         
         if progress.total_detections > 0:
             assert csv_file.exists()
@@ -473,7 +472,7 @@ class TestEndToEndPipeline:
                         conf = float(row["detection_confidence"])
                         assert 0.0 <= conf <= 1.0
 
-        logger.info(f"CSV export verified: {len(rows) if progress.total_detections > 0 else 0} rows")
+        logger.info(f"CSV export verified: {len(rows)} rows")
 
     def test_progress_tracking_accuracy(
         self,
@@ -508,7 +507,7 @@ class TestEndToEndPipeline:
             progress_callback=track_progress,
         )
 
-        final_progress = processor.process_images(sample_images)
+        final_progress = processor.process_images(list(sample_images))
 
         # Verify progress tracking
         assert len(progress_updates) > 0, "Should have progress updates"
