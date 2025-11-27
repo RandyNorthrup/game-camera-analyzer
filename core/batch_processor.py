@@ -281,9 +281,41 @@ class BatchProcessor:
 
         return self.process_images(image_files)
 
-    def process_images(self, image_paths: List[Union[str, Path]]) -> BatchProgress:
+    def process_images(
+        self,
+        image_paths: List[Union[str, Path]],
+        use_parallel: Optional[bool] = None
+    ) -> BatchProgress:
         """
-        Process a list of images.
+        Process a list of images with optional parallel execution.
+
+        Args:
+            image_paths: List of image file paths
+            use_parallel: Use parallel processing (None = auto-detect from config)
+
+        Returns:
+            BatchProgress with processing statistics
+
+        Raises:
+            BatchProcessingError: If processing fails critically
+        """
+        # Determine if parallel processing should be used
+        should_use_parallel = use_parallel if use_parallel is not None else (
+            self.batch_config.max_workers > 1
+        )
+        
+        if should_use_parallel and self.batch_config.max_workers > 1:
+            logger.info(
+                f"Using parallel processing with {self.batch_config.max_workers} workers"
+            )
+            return self._process_images_parallel(image_paths)
+        else:
+            logger.info("Using sequential processing")
+            return self._process_images_sequential(image_paths)
+    
+    def _process_images_sequential(self, image_paths: List[Union[str, Path]]) -> BatchProgress:
+        """
+        Process images sequentially (original implementation).
 
         Args:
             image_paths: List of image file paths
@@ -386,6 +418,111 @@ class BatchProcessor:
         )
 
         return progress
+    
+    def _process_images_parallel(self, image_paths: List[Union[str, Path]]) -> BatchProgress:
+        """
+        Process images using parallel workers.
+
+        Args:
+            image_paths: List of image paths to process
+
+        Returns:
+            BatchProgress with statistics
+
+        Raises:
+            BatchProcessingError: If processing fails critically
+        """
+        from core.parallel_processor import ParallelConfig, ParallelBatchProcessor
+        
+        progress = BatchProgress(total_images=len(image_paths))
+        
+        # Create parallel config from batch config
+        parallel_config = ParallelConfig(
+            max_workers=self.batch_config.max_workers,
+            chunk_size=10,
+            enable_gpu_workers=False,  # Conservative default
+            memory_limit_mb=2048,
+            timeout_seconds=300
+        )
+        
+        # Create progress callback
+        def on_progress(current: int, total: int) -> None:
+            progress.processed_images = current
+            if self.progress_callback:
+                self.progress_callback(progress)
+            
+            # Log progress periodically
+            if current % 10 == 0 or current == total:
+                logger.info(
+                    f"Progress: {current}/{total} "
+                    f"({progress.get_progress_percent():.1f}%)"
+                )
+        
+        # Convert paths to Path objects
+        paths = [Path(p) for p in image_paths]
+        
+        # Create parallel processor
+        parallel_processor = ParallelBatchProcessor(
+            process_function=self._process_single_image,
+            config=parallel_config,
+            progress_callback=on_progress
+        )
+        
+        # Process images
+        try:
+            collector = parallel_processor.process_images(paths)
+        except Exception as e:
+            logger.error(f"Parallel processing failed: {e}", exc_info=True)
+            if not self.batch_config.continue_on_error:
+                raise BatchProcessingError(f"Parallel processing failed: {e}") from e
+            return progress
+        
+        # Aggregate results
+        detections, classifications, crops, errors = collector.get_results()
+        
+        progress.successful_images = len(detections)
+        progress.failed_images = len(errors)
+        progress.total_detections = sum(
+            len(d.detections) if d else 0 for d in detections
+        )
+        progress.total_classifications = sum(
+            len([c for c in cls if c]) if cls else 0 for cls in classifications
+        )
+        progress.total_crops = sum(
+            len([c for c in crp if c]) if crp else 0 for crp in crops
+        )
+        
+        # Collect error messages
+        for image_path, error in errors:
+            progress.errors.append(f"{image_path.name}: {error}")
+        
+        # Export results to CSV
+        if self.batch_config.export_csv and self.csv_exporter and detections:
+            try:
+                logger.info("Exporting results to CSV...")
+                self.csv_exporter.export_combined(
+                    detections,
+                    classifications if classifications else None,
+                    crops if crops else None,
+                    output_filename="batch_results.csv",
+                )
+                logger.info("CSV export complete")
+            except Exception as e:
+                logger.error(f"Failed to export CSV: {e}", exc_info=True)
+                progress.errors.append(f"CSV export failed: {e}")
+        
+        # Log final summary
+        logger.info(
+            f"Parallel batch processing complete: "
+            f"{progress.successful_images}/{progress.total_images} successful, "
+            f"{progress.failed_images} failed, "
+            f"{progress.total_detections} detections, "
+            f"{progress.total_classifications} classifications, "
+            f"{progress.total_crops} crops, "
+            f"time: {progress.get_elapsed_time():.1f}s"
+        )
+        
+        return progress
 
     def _process_single_image(
         self, image_path: Path
@@ -480,7 +617,7 @@ class BatchProcessor:
         if self.cropping_engine:
             stats["cropping"] = self.cropping_engine.get_statistics()
 
-        if self.csv_exporter:
+        if self.csv_exporter and hasattr(self.csv_exporter, "get_statistics"):
             stats["export"] = self.csv_exporter.get_statistics()
 
         return stats

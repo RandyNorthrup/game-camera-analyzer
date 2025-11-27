@@ -665,7 +665,11 @@
         "sagebrush"
       ],
       "activity_pattern": "diurnal",
-      "yolo_mappings": []
+      "yolo_mappings": [
+        "horse",
+        "sheep",
+        "cow"
+      ]
     },
     {
       "species_id": "black_tailed_jackrabbit",
@@ -692,7 +696,10 @@
         "chaparral"
       ],
       "activity_pattern": "crepuscular",
-      "yolo_mappings": []
+      "yolo_mappings": [
+        "cat",
+        "bird"
+      ]
     },
     {
       "species_id": "brush_rabbit",
@@ -718,7 +725,10 @@
         "woodland"
       ],
       "activity_pattern": "crepuscular",
-      "yolo_mappings": []
+      "yolo_mappings": [
+        "cat",
+        "bird"
+      ]
     },
     {
       "species_id": "desert_cottontail",
@@ -745,7 +755,10 @@
         "chaparral"
       ],
       "activity_pattern": "crepuscular",
-      "yolo_mappings": []
+      "yolo_mappings": [
+        "cat",
+        "bird"
+      ]
     },
     {
       "species_id": "kit_fox",
@@ -771,7 +784,10 @@
         "grassland"
       ],
       "activity_pattern": "nocturnal",
-      "yolo_mappings": []
+      "yolo_mappings": [
+        "dog",
+        "cat"
+      ]
     },
     {
       "species_id": "san_joaquin_kit_fox",
@@ -797,7 +813,10 @@
         "agricultural land"
       ],
       "activity_pattern": "nocturnal",
-      "yolo_mappings": []
+      "yolo_mappings": [
+        "dog",
+        "cat"
+      ]
     },
     {
       "species_id": "river_otter",
@@ -825,7 +844,10 @@
         "coastal"
       ],
       "activity_pattern": "diurnal",
-      "yolo_mappings": []
+      "yolo_mappings": [
+        "cat",
+        "dog"
+      ]
     },
     {
       "species_id": "marten",
@@ -851,7 +873,10 @@
         "mountain"
       ],
       "activity_pattern": "crepuscular",
-      "yolo_mappings": []
+      "yolo_mappings": [
+        "cat",
+        "dog"
+      ]
     },
     {
       "species_id": "fisher",
@@ -878,7 +903,10 @@
         "mixed forest"
       ],
       "activity_pattern": "nocturnal",
-      "yolo_mappings": []
+      "yolo_mappings": [
+        "cat",
+        "dog"
+      ]
     },
     {
       "species_id": "california_kangaroo_rat",
@@ -905,7 +933,9 @@
         "oak woodland"
       ],
       "activity_pattern": "nocturnal",
-      "yolo_mappings": []
+      "yolo_mappings": [
+        "bird"
+      ]
     },
     {
       "species_id": "woodrat",
@@ -933,7 +963,9 @@
         "forest"
       ],
       "activity_pattern": "nocturnal",
-      "yolo_mappings": []
+      "yolo_mappings": [
+        "bird"
+      ]
     },
     {
       "species_id": "common_raven",
@@ -958,7 +990,9 @@
         "varied - found in most habitats"
       ],
       "activity_pattern": "diurnal",
-      "yolo_mappings": []
+      "yolo_mappings": [
+        "bird"
+      ]
     },
     {
       "species_id": "roadrunner",
@@ -985,7 +1019,9 @@
         "grassland"
       ],
       "activity_pattern": "diurnal",
-      "yolo_mappings": []
+      "yolo_mappings": [
+        "bird"
+      ]
     },
     {
       "species_id": "unknown",

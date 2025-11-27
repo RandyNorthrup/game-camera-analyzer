@@ -21,7 +21,11 @@
     "batch_size": 8,
     "num_workers": 4,
     "use_gpu": true,
-    "cache_models": true
+    "cache_models": true,
+    "enhance_low_light": true,
+    "denoise_images": false,
+    "low_light_threshold": 80,
+    "denoise_strength": 3
   },
   "cropping": {
     "strategy": "context",

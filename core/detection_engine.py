@@ -16,9 +16,10 @@ from numpy.typing import NDArray
 
 from models.model_manager import ModelManager
 from models.yolo_detector import Detection, YOLODetector
-from utils.image_utils import load_image, resize_image, save_image
+from utils.image_utils import load_image, resize_image, save_image, enhance_low_light, denoise_image
 from utils.validators import (
     validate_confidence_threshold,
+    validate_iou_threshold,
     validate_image_readable,
 )
 
@@ -63,8 +64,28 @@ class DetectionResult:
             if not isinstance(det, Detection):
                 raise TypeError(f"detections[{i}] must be Detection, got {type(det)}")
 
+    @property
+    def image_size(self) -> Tuple[int, int]:
+        """
+        Get image size as (height, width) tuple.
+
+        Returns:
+            Tuple of (height, width) in pixels
+        """
+        return (self.image.shape[0], self.image.shape[1])
+
+    @property
+    def num_detections(self) -> int:
+        """
+        Get the number of detections.
+
+        Returns:
+            Count of detections in the image
+        """
+        return len(self.detections)
+
     def get_detection_count(self) -> int:
-        """Get the number of detections."""
+        """Get the number of detections (legacy method, prefer num_detections property)."""
         return len(self.detections)
 
     def has_detections(self) -> bool:
@@ -108,6 +129,34 @@ class DetectionResult:
         validate_confidence_threshold(min_confidence)
         return [det for det in self.detections if det.confidence >= min_confidence]
 
+    def to_dict(self) -> Dict[str, Any]:
+        """
+        Convert detection result to dictionary format.
+
+        Returns:
+            Dictionary containing detection result data including:
+            - image_path: str path to the image
+            - image_size: tuple of (height, width)
+            - num_detections: count of detections
+            - detections: list of detection dicts
+            - metadata: result metadata
+        """
+        return {
+            "image_path": str(self.image_path),
+            "image_size": self.image_size,
+            "num_detections": self.num_detections,
+            "detections": [
+                {
+                    "bbox": det.bbox,
+                    "confidence": det.confidence,
+                    "class_id": det.class_id,
+                    "class_name": det.class_name,
+                }
+                for det in self.detections
+            ],
+            "metadata": self.metadata,
+        }
+
 
 class DetectionEngine:
     """
@@ -137,6 +186,10 @@ class DetectionEngine:
         max_detections: int = 20,
         preprocess_size: Optional[Tuple[int, int]] = None,
         model_manager: Optional[ModelManager] = None,
+        enhance_low_light: bool = True,
+        denoise_images: bool = False,
+        low_light_threshold: int = 80,
+        denoise_strength: int = 3,
     ) -> None:
         """
         Initialize detection engine.
@@ -148,6 +201,10 @@ class DetectionEngine:
             max_detections: Maximum number of detections per image
             preprocess_size: Optional resize dimensions (width, height) for preprocessing
             model_manager: Optional ModelManager instance (created if not provided)
+            enhance_low_light: Automatically enhance dark images for better detection
+            denoise_images: Apply denoising to reduce false positives
+            low_light_threshold: Mean brightness threshold for enhancement (0-255)
+            denoise_strength: Denoising strength (1-10)
 
         Raises:
             ValueError: If confidence or IoU thresholds are invalid
@@ -157,7 +214,7 @@ class DetectionEngine:
 
         # Validate parameters
         validate_confidence_threshold(confidence_threshold)
-        validate_confidence_threshold(iou_threshold)
+        validate_iou_threshold(iou_threshold)
 
         if max_detections < 1:
             raise ValueError(f"max_detections must be >= 1, got {max_detections}")
@@ -174,6 +231,10 @@ class DetectionEngine:
         self.iou_threshold = iou_threshold
         self.max_detections = max_detections
         self.preprocess_size = preprocess_size
+        self.enhance_low_light = enhance_low_light
+        self.denoise_images = denoise_images
+        self.low_light_threshold = low_light_threshold
+        self.denoise_strength = denoise_strength
 
         # Initialize model manager and detector
         self.model_manager = model_manager or ModelManager()
@@ -187,7 +248,8 @@ class DetectionEngine:
 
         logger.info(
             f"DetectionEngine initialized: model={model_name}, "
-            f"conf={confidence_threshold}, iou={iou_threshold}"
+            f"conf={confidence_threshold}, iou={iou_threshold}, "
+            f"enhance_low_light={enhance_low_light}, denoise={denoise_images}"
         )
 
     def process_image(
@@ -235,11 +297,38 @@ class DetectionEngine:
             original_shape = image.shape
             logger.debug(f"Loaded image: shape={original_shape}")
 
+            # Apply image enhancements if configured
+            enhanced_image = image
+            if self.enhance_low_light:
+                # Convert to BGR for OpenCV enhancement
+                bgr_image = image[:, :, ::-1].copy()
+                bgr_enhanced = enhance_low_light(
+                    bgr_image,
+                    auto_adjust=True,
+                    gamma=2.2,
+                    clahe_clip_limit=2.0,
+                )
+                # Convert back to RGB
+                enhanced_image = bgr_enhanced[:, :, ::-1]
+                logger.debug("Applied low-light enhancement")
+
+            if self.denoise_images:
+                # Convert to BGR for OpenCV denoising
+                bgr_image = enhanced_image[:, :, ::-1].copy()
+                bgr_denoised = denoise_image(
+                    bgr_image,
+                    method="bilateral",
+                    strength=self.denoise_strength,
+                )
+                # Convert back to RGB
+                enhanced_image = bgr_denoised[:, :, ::-1]
+                logger.debug(f"Applied denoising with strength={self.denoise_strength}")
+
             # Preprocess if needed
-            processed_image = image
+            processed_image = enhanced_image
             if self.preprocess_size is not None:
                 processed_image = resize_image(
-                    image, target_size=self.preprocess_size, maintain_aspect=False
+                    enhanced_image, target_size=self.preprocess_size, maintain_aspect=False
                 )
                 logger.debug(f"Preprocessed image: {original_shape} -> {processed_image.shape}")
 
@@ -373,6 +462,70 @@ class DetectionEngine:
         logger.info(f"Batch processing complete: {len(results)}/{len(image_paths)} successful")
 
         return results
+
+    # Convenience method aliases for backward compatibility and test compatibility
+    def detect(
+        self,
+        image_path: str | Path,
+        return_annotated: bool = False,
+        save_annotated: Optional[str | Path] = None,
+    ) -> DetectionResult:
+        """
+        Convenience alias for process_image().
+
+        This method provides backward compatibility with older API versions
+        and matches test expectations. All functionality is delegated to
+        process_image().
+
+        Args:
+            image_path: Path to the image file
+            return_annotated: Whether to include annotated image in result
+            save_annotated: Optional path to save annotated image
+
+        Returns:
+            DetectionResult with detections and metadata
+
+        Raises:
+            FileNotFoundError: If image file doesn't exist
+            ValueError: If image is invalid
+            RuntimeError: If detection fails
+        """
+        return self.process_image(
+            image_path=image_path,
+            return_annotated=return_annotated,
+            save_annotated=save_annotated,
+        )
+
+    def detect_batch(
+        self,
+        image_paths: List[str | Path],
+        return_annotated: bool = False,
+        save_annotated_dir: Optional[str | Path] = None,
+    ) -> List[DetectionResult]:
+        """
+        Convenience alias for process_batch().
+
+        This method provides backward compatibility with older API versions
+        and matches test expectations. All functionality is delegated to
+        process_batch().
+
+        Args:
+            image_paths: List of image file paths
+            return_annotated: Whether to include annotated images in results
+            save_annotated_dir: Optional directory to save annotated images
+
+        Returns:
+            List of DetectionResult objects
+
+        Raises:
+            ValueError: If image_paths is empty
+            RuntimeError: If batch processing fails
+        """
+        return self.process_batch(
+            image_paths=image_paths,
+            return_annotated=return_annotated,
+            save_annotated_dir=save_annotated_dir,
+        )
 
     def update_thresholds(
         self,

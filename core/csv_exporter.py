@@ -347,10 +347,13 @@ class CSVExporter:
             rows: List[Dict[str, Any]] = []
 
             for i, det_result in enumerate(detection_results):
+                # Handle sparse classification/crop results - only images with detections have entries
+                # classification_results and crop_results are parallel to detection_results
+                # but may be None or shorter if some images had no detections
                 classifications = (
-                    classification_results[i] if classification_results else None
+                    classification_results[i] if classification_results and i < len(classification_results) else None
                 )
-                crops = crop_results[i] if crop_results else None
+                crops = crop_results[i] if crop_results and i < len(crop_results) else None
 
                 for j, detection in enumerate(det_result.detections):
                     classification = (
@@ -364,12 +367,13 @@ class CSVExporter:
                     )
                     rows.append(row)
 
-            if not rows:
-                logger.warning("No combined results to export")
-                return output_path
-
-            # Create DataFrame
-            df = pd.DataFrame(rows)
+            # Create DataFrame - even if empty, to write headers
+            if rows:
+                df = pd.DataFrame(rows)
+            else:
+                # No detections, but create empty DataFrame with expected columns
+                logger.warning("No combined results to export, creating empty CSV with headers")
+                df = pd.DataFrame(columns=self._get_combined_columns())
 
             # Export to CSV
             mode = "a" if append and output_path.exists() else "w"
@@ -523,6 +527,7 @@ class CSVExporter:
             "image_filename": det_result.image_path.name,
             "yolo_class": detection.class_name,
             "yolo_confidence": round(detection.confidence, 4),
+            "detection_confidence": round(detection.confidence, 4),  # Alias for backward compatibility
         }
 
         # Add classification data
@@ -587,7 +592,43 @@ class CSVExporter:
 
         return row
 
-    def get_statistics(self) -> Dict[str, Any]:
+    def _get_combined_columns(self) -> List[str]:
+        """
+        Get the list of expected column names for combined CSV export.
+
+        Returns:
+            List of column names in the expected order
+        """
+        columns = [
+            "timestamp",
+            "image_path",
+            "image_filename",
+            "yolo_class",
+            "yolo_confidence",
+            "detection_confidence",  # Alias for backward compatibility
+            "species_id",
+            "species_common_name",
+            "species_scientific_name",
+            "species_confidence",
+            "classification_method",
+            "crop_path",
+            "crop_width",
+            "crop_height",
+        ]
+
+        if self.config.include_bbox_details:
+            columns.extend([
+                "bbox_x1",
+                "bbox_y1",
+                "bbox_x2",
+                "bbox_y2",
+                "bbox_width",
+                "bbox_height",
+            ])
+
+        return columns
+
+    def get_stats(self) -> Dict[str, int]:
         """Get export statistics."""
         return self.stats.copy()
 

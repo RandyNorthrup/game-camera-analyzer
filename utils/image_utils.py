@@ -419,6 +419,123 @@ def crop_bbox(
     return cropped
 
 
+def enhance_low_light(
+    img: npt.NDArray[Any],
+    auto_adjust: bool = True,
+    gamma: float = 2.2,
+    clahe_clip_limit: float = 2.0,
+) -> npt.NDArray[Any]:
+    """
+    Enhance low-light images to improve detection accuracy.
+
+    Args:
+        img: Input image array (BGR)
+        auto_adjust: If True, only enhance if image is dark (mean brightness < 80)
+        gamma: Gamma correction value (>1 brightens, <1 darkens)
+        clahe_clip_limit: CLAHE clip limit for contrast enhancement
+
+    Returns:
+        Enhanced image array
+    """
+    if img is None or img.size == 0:
+        raise ValueError("Input image is empty")
+
+    # Check if enhancement is needed
+    if auto_adjust:
+        # Convert to grayscale and check mean brightness
+        if len(img.shape) == 3:
+            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        else:
+            gray = img
+        mean_brightness = np.mean(gray)
+
+        # Skip enhancement if image is already bright enough
+        if mean_brightness > 80:
+            logger.debug(f"Image is bright enough ({mean_brightness:.1f}), skipping enhancement")
+            return img
+
+        logger.debug(f"Enhancing low-light image (brightness={mean_brightness:.1f})")
+
+    # Apply gamma correction for overall brightness
+    invGamma = 1.0 / gamma
+    table = np.array([((i / 255.0) ** invGamma) * 255 for i in range(256)]).astype(np.uint8)
+    enhanced = cv2.LUT(img, table)
+
+    # Apply CLAHE (Contrast Limited Adaptive Histogram Equalization)
+    # This improves local contrast without over-amplifying noise
+    if len(enhanced.shape) == 3:
+        # Convert to LAB color space to preserve color while enhancing luminance
+        lab = cv2.cvtColor(enhanced, cv2.COLOR_BGR2LAB)
+        l_channel, a_channel, b_channel = cv2.split(lab)
+
+        # Apply CLAHE to L channel
+        clahe = cv2.createCLAHE(clipLimit=clahe_clip_limit, tileGridSize=(8, 8))
+        l_channel_clahe = clahe.apply(l_channel)
+
+        # Merge channels back
+        lab_clahe = cv2.merge([l_channel_clahe, a_channel, b_channel])
+        enhanced = cv2.cvtColor(lab_clahe, cv2.COLOR_LAB2BGR)
+    else:
+        # Grayscale image
+        clahe = cv2.createCLAHE(clipLimit=clahe_clip_limit, tileGridSize=(8, 8))
+        enhanced = clahe.apply(enhanced)
+
+    logger.debug("Applied low-light enhancement (gamma correction + CLAHE)")
+    return enhanced
+
+
+def denoise_image(
+    img: npt.NDArray[Any],
+    method: str = "bilateral",
+    strength: int = 5,
+) -> npt.NDArray[Any]:
+    """
+    Denoise an image to reduce false positives from noise.
+
+    Args:
+        img: Input image array (BGR or grayscale)
+        method: Denoising method ("bilateral", "gaussian", "median", "nlmeans")
+        strength: Denoising strength (higher = more smoothing)
+
+    Returns:
+        Denoised image array
+
+    Raises:
+        ValueError: If method is invalid
+    """
+    if img is None or img.size == 0:
+        raise ValueError("Input image is empty")
+
+    valid_methods = {"bilateral", "gaussian", "median", "nlmeans"}
+    if method not in valid_methods:
+        raise ValueError(f"method must be one of {valid_methods}, got '{method}'")
+
+    if method == "bilateral":
+        # Bilateral filter preserves edges while smoothing
+        denoised = cv2.bilateralFilter(img, d=9, sigmaColor=strength * 10, sigmaSpace=strength * 10)
+    elif method == "gaussian":
+        # Gaussian blur - simple and fast
+        kernel_size = strength * 2 + 1  # Must be odd
+        denoised = cv2.GaussianBlur(img, (kernel_size, kernel_size), 0)
+    elif method == "median":
+        # Median filter - good for salt-and-pepper noise
+        kernel_size = strength * 2 + 1  # Must be odd
+        denoised = cv2.medianBlur(img, kernel_size)
+    elif method == "nlmeans":
+        # Non-local means - best quality but slowest
+        if len(img.shape) == 3:
+            denoised = cv2.fastNlMeansDenoisingColored(
+                img, None, h=strength, hColor=strength, templateWindowSize=7, searchWindowSize=21
+            )
+        else:
+            denoised = cv2.fastNlMeansDenoising(
+                img, None, h=strength, templateWindowSize=7, searchWindowSize=21
+            )
+
+    logger.debug(f"Applied {method} denoising with strength={strength}")
+    return denoised
+
+
 def save_image(img: npt.NDArray[Any], output_path: Union[str, Path], quality: int = 95) -> None:
     """
     Save an image to disk.

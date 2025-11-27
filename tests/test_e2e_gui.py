@@ -64,18 +64,20 @@ class TestMainWindowE2E:
         window = MainWindow()
         qtbot.addWidget(window)
 
-        # Find components by test IDs
-        assert window.findChild(type(window), "testid_main_window") is not None
-        assert window.findChild(type(window), "testid_input_group") is not None
-        assert window.findChild(type(window), "testid_progress_group") is not None
-        assert window.findChild(type(window), "testid_results_group") is not None
+        # Check window has correct object name
+        assert window.objectName() == "testid_main_window"
+        
+        # Find child components by test IDs
+        from PySide6.QtWidgets import QGroupBox
+        assert window.findChild(QGroupBox, "testid_input_group") is not None
+        assert window.findChild(QGroupBox, "testid_progress_group") is not None
+        assert window.findChild(QGroupBox, "testid_results_group") is not None
         
         # Check buttons exist
         assert window.select_file_btn is not None
         assert window.select_dir_btn is not None
         assert window.process_btn is not None
         assert window.stop_btn is not None
-        assert window.settings_btn is not None
 
         logger.info("All UI components found")
 
@@ -99,7 +101,6 @@ class TestMainWindowE2E:
         assert not window.stop_btn.isEnabled()
         assert window.select_file_btn.isEnabled()
         assert window.select_dir_btn.isEnabled()
-        assert window.settings_btn.isEnabled()
 
         logger.info("Initial UI state verified")
 
@@ -226,8 +227,11 @@ class TestMainWindowE2E:
 
         monkeypatch.setattr(SettingsDialog, "exec", mock_exec)
 
-        # Click settings button
-        qtbot.mouseClick(window.settings_btn, Qt.MouseButton.LeftButton)
+        # Open settings via menu (Ctrl+,)
+        from PySide6.QtGui import QAction
+        preferences_action = window.findChild(QAction, "testid_menu_preferences")
+        assert preferences_action is not None, "Preferences menu action not found"
+        preferences_action.trigger()
 
         # Verify dialog was opened
         assert len(dialog_opened) > 0
@@ -572,30 +576,34 @@ class TestSettingsDialogE2E:
             - Settings persist across dialog instances
             - Default values can be restored
         """
-        config = get_config_manager()
+        # Use isolated config for this test
+        from config import ConfigManager
+        
+        # Create isolated config with temporary user config path
+        test_user_config = temp_dir / "test_user_config.json"
+        config = ConfigManager(user_config_path=test_user_config)
         
         # Open dialog and modify settings
         dialog1 = SettingsDialog(config)
         qtbot.addWidget(dialog1)
 
-        original_confidence = dialog1.confidence_spin.value()
         new_confidence = 0.75
         dialog1.confidence_spin.setValue(new_confidence)
+        
+        # Ensure output directory is valid (not empty) to pass validation
+        dialog1.base_dir_edit.setText(str(temp_dir))
 
-        # Simulate accept
-        dialog1._save_settings()
+        # Simulate accepting via _on_accept which saves settings
+        dialog1._on_accept()
 
-        # Create new dialog instance
-        dialog2 = SettingsDialog(config)
+        # Create new ConfigManager instance to load saved config
+        config2 = ConfigManager(user_config_path=test_user_config)
+        dialog2 = SettingsDialog(config2)
         qtbot.addWidget(dialog2)
 
         # Should load saved value
         assert dialog2.confidence_spin.value() == new_confidence
-
-        # Restore original
-        dialog2.confidence_spin.setValue(original_confidence)
-        dialog2._save_settings()
-
+        
         logger.info("Settings persistence verified")
 
     def test_input_validation(self, qtbot: QtBot, monkeypatch) -> None:

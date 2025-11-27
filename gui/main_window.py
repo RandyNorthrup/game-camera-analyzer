@@ -13,7 +13,8 @@ import logging
 from pathlib import Path
 from typing import Optional
 
-from PySide6.QtCore import QThread, Qt, Signal
+from PySide6.QtCore import QThread, Signal
+from PySide6.QtGui import QAction
 from PySide6.QtWidgets import (
     QFileDialog,
     QGroupBox,
@@ -28,9 +29,11 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from config import ConfigManager, get_config_manager
+from config import get_config_manager
 from core.batch_processor import BatchConfig, BatchProcessor, BatchProgress
+from gui.model_management_dialog import ModelManagementDialog
 from gui.settings_dialog import SettingsDialog
+from models.model_manager import ModelManager
 
 logger = logging.getLogger(__name__)
 
@@ -115,10 +118,13 @@ class MainWindow(QMainWindow):
         self.processor: Optional[BatchProcessor] = None
         self.processing_thread: Optional[ProcessingThread] = None
         self.input_path: Optional[Path] = None
+        self.model_manager: Optional[ModelManager] = None
 
         self._setup_ui()
+        self._setup_menu_bar()
         self._connect_signals()
         self._load_settings()
+        self._initialize_model_manager()
 
         logger.info("Main window initialized")
 
@@ -143,6 +149,71 @@ class MainWindow(QMainWindow):
         main_layout.addWidget(self._create_results_section())
         main_layout.addWidget(self._create_actions_section())
 
+    def _setup_menu_bar(self) -> None:
+        """Set up the application menu bar."""
+        menubar = self.menuBar()
+        # Force menu bar to be visible in the window on macOS
+        menubar.setNativeMenuBar(False)
+
+        # File menu
+        file_menu = menubar.addMenu("&File")
+        file_menu.setObjectName("testid_file_menu")
+
+        select_file_action = QAction("Select &File...", self)
+        select_file_action.setObjectName("testid_menu_select_file")
+        select_file_action.setShortcut("Ctrl+O")
+        select_file_action.setStatusTip("Select an image or video file to process")
+        select_file_action.triggered.connect(self._on_select_file)
+        file_menu.addAction(select_file_action)
+
+        select_dir_action = QAction("Select &Directory...", self)
+        select_dir_action.setObjectName("testid_menu_select_dir")
+        select_dir_action.setShortcut("Ctrl+D")
+        select_dir_action.setStatusTip("Select a directory to process all images and videos")
+        select_dir_action.triggered.connect(self._on_select_directory)
+        file_menu.addAction(select_dir_action)
+
+        file_menu.addSeparator()
+
+        exit_action = QAction("E&xit", self)
+        exit_action.setObjectName("testid_menu_exit")
+        exit_action.setShortcut("Ctrl+Q")
+        exit_action.setStatusTip("Exit application")
+        exit_action.triggered.connect(self.close)
+        file_menu.addAction(exit_action)
+
+        # Settings menu
+        settings_menu = menubar.addMenu("&Settings")
+        settings_menu.setObjectName("testid_settings_menu")
+
+        preferences_action = QAction("&Preferences...", self)
+        preferences_action.setObjectName("testid_menu_preferences")
+        preferences_action.setShortcut("Ctrl+,")
+        preferences_action.setStatusTip("Configure application settings")
+        preferences_action.triggered.connect(self._on_open_settings)
+        settings_menu.addAction(preferences_action)
+
+        settings_menu.addSeparator()
+
+        model_mgmt_action = QAction("&Model Management...", self)
+        model_mgmt_action.setObjectName("testid_menu_model_mgmt")
+        model_mgmt_action.setShortcut("Ctrl+M")
+        model_mgmt_action.setStatusTip("Download, benchmark, and compare YOLO models")
+        model_mgmt_action.triggered.connect(self._on_open_model_management)
+        settings_menu.addAction(model_mgmt_action)
+
+        # Help menu
+        help_menu = menubar.addMenu("&Help")
+        help_menu.setObjectName("testid_help_menu")
+
+        about_action = QAction("&About...", self)
+        about_action.setObjectName("testid_menu_about")
+        about_action.setStatusTip("About Game Camera Analyzer")
+        about_action.triggered.connect(self._on_show_about)
+        help_menu.addAction(about_action)
+
+        logger.debug("Menu bar initialized")
+
     def _create_input_section(self) -> QGroupBox:
         """
         Create input selection section.
@@ -163,9 +234,9 @@ class MainWindow(QMainWindow):
         # Button row
         button_layout = QHBoxLayout()
 
-        self.select_file_btn = QPushButton("Select Image")
+        self.select_file_btn = QPushButton("Select File")
         self.select_file_btn.setObjectName("testid_select_file_button")
-        self.select_file_btn.setToolTip("Select a single image file to process")
+        self.select_file_btn.setToolTip("Select an image or video file to process")
         button_layout.addWidget(self.select_file_btn)
 
         self.select_dir_btn = QPushButton("Select Directory")
@@ -241,13 +312,7 @@ class MainWindow(QMainWindow):
         widget.setObjectName("testid_actions_widget")
         layout = QHBoxLayout()
 
-        # Settings button
-        self.settings_btn = QPushButton("Settings")
-        self.settings_btn.setObjectName("testid_settings_button")
-        self.settings_btn.setToolTip("Configure processing settings")
-        layout.addWidget(self.settings_btn)
-
-        # Spacer
+        # Spacer to push buttons to the right
         layout.addStretch()
 
         # Process button
@@ -273,21 +338,33 @@ class MainWindow(QMainWindow):
         self.select_dir_btn.clicked.connect(self._on_select_directory)
         self.process_btn.clicked.connect(self._on_start_processing)
         self.stop_btn.clicked.connect(self._on_stop_processing)
-        self.settings_btn.clicked.connect(self._on_open_settings)
 
     def _load_settings(self) -> None:
         """Load application settings from configuration."""
         try:
-            # Load last used directory
+            # Load last used directory (for file dialog starting point)
             last_dir = self.config_manager.get_value("gui.last_directory")
-            if last_dir:
-                self.input_path = Path(last_dir)
-                self.input_label.setText(f"Last used: {last_dir}")
+            if last_dir and Path(last_dir).exists():
+                # Don't set input_path, just remember the directory for file dialogs
+                logger.debug(f"Last used directory: {last_dir}")
 
             logger.debug("Settings loaded successfully")
 
         except Exception as e:
             logger.warning(f"Failed to load settings: {e}")
+
+    def _initialize_model_manager(self) -> None:
+        """Initialize the model manager for the application."""
+        try:
+            self.model_manager = ModelManager()
+            logger.info(f"Model manager initialized with device: {self.model_manager.device}")
+        except Exception as e:
+            logger.error(f"Failed to initialize model manager: {e}", exc_info=True)
+            self._show_error(
+                "Model Manager Error",
+                f"Failed to initialize model management: {e}\n\n"
+                "Some features may not be available.",
+            )
 
     def _save_settings(self) -> None:
         """Save application settings to configuration."""
@@ -307,25 +384,34 @@ class MainWindow(QMainWindow):
             logger.warning(f"Failed to save settings: {e}")
 
     def _on_select_file(self) -> None:
-        """Handle file selection."""
+        """Handle file selection for images or videos."""
         try:
+            # Use last directory from config as starting point
             start_dir = ""
-            if self.input_path and self.input_path.is_dir():
+            last_dir = self.config_manager.get_value("gui.last_directory")
+            if last_dir and Path(last_dir).exists():
+                start_dir = last_dir
+            elif self.input_path and self.input_path.is_dir():
                 start_dir = str(self.input_path)
 
             file_path, _ = QFileDialog.getOpenFileName(
                 self,
-                "Select Image",
+                "Select File",
                 start_dir,
-                "Images (*.jpg *.jpeg *.png *.bmp);;All Files (*.*)",
+                "Media Files (*.jpg *.jpeg *.png *.bmp *.mp4 *.avi *.mov *.mkv);;Images (*.jpg *.jpeg *.png *.bmp);;Videos (*.mp4 *.avi *.mov *.mkv);;All Files (*.*)",
             )
 
             if file_path:
                 self.input_path = Path(file_path)
-                self.input_label.setText(f"Selected file: {file_path}")
+                file_type = (
+                    "video"
+                    if file_path.lower().endswith((".mp4", ".avi", ".mov", ".mkv"))
+                    else "image"
+                )
+                self.input_label.setText(f"Selected {file_type}: {file_path}")
                 self.process_btn.setEnabled(True)
                 self._save_settings()
-                logger.info(f"Selected file: {file_path}")
+                logger.info(f"Selected {file_type}: {file_path}")
 
         except Exception as e:
             logger.error(f"File selection error: {e}", exc_info=True)
@@ -334,8 +420,12 @@ class MainWindow(QMainWindow):
     def _on_select_directory(self) -> None:
         """Handle directory selection."""
         try:
+            # Use last directory from config as starting point
             start_dir = ""
-            if self.input_path and self.input_path.is_dir():
+            last_dir = self.config_manager.get_value("gui.last_directory")
+            if last_dir and Path(last_dir).exists():
+                start_dir = last_dir
+            elif self.input_path and self.input_path.is_dir():
                 start_dir = str(self.input_path)
 
             dir_path = QFileDialog.getExistingDirectory(
@@ -347,40 +437,48 @@ class MainWindow(QMainWindow):
 
             if dir_path:
                 self.input_path = Path(dir_path)
-                # Count images in directory
-                image_count = self._count_images(self.input_path)
+                # Count images and videos in directory
+                image_count, video_count = self._count_media_files(self.input_path)
                 self.input_label.setText(
-                    f"Selected directory: {dir_path}\n({image_count} images found)"
+                    f"Selected directory: {dir_path}\n({image_count} images, {video_count} videos found)"
                 )
                 self.process_btn.setEnabled(True)
                 self._save_settings()
-                logger.info(f"Selected directory: {dir_path} ({image_count} images)")
+                logger.info(
+                    f"Selected directory: {dir_path} ({image_count} images, {video_count} videos)"
+                )
 
         except Exception as e:
             logger.error(f"Directory selection error: {e}", exc_info=True)
             self._show_error("Directory Selection Error", str(e))
 
-    def _count_images(self, directory: Path) -> int:
+    def _count_media_files(self, directory: Path) -> tuple[int, int]:
         """
-        Count image files in directory.
+        Count image and video files in directory.
 
         Args:
             directory: Directory to search
 
         Returns:
-            Number of image files found
+            Tuple of (image_count, video_count)
         """
-        extensions = {".jpg", ".jpeg", ".png", ".bmp"}
-        count = 0
+        image_extensions = {".jpg", ".jpeg", ".png", ".bmp"}
+        video_extensions = {".mp4", ".avi", ".mov", ".mkv"}
+        image_count = 0
+        video_count = 0
 
         try:
             for item in directory.rglob("*"):
-                if item.is_file() and item.suffix.lower() in extensions:
-                    count += 1
+                if item.is_file():
+                    ext = item.suffix.lower()
+                    if ext in image_extensions:
+                        image_count += 1
+                    elif ext in video_extensions:
+                        video_count += 1
         except Exception as e:
-            logger.warning(f"Error counting images: {e}")
+            logger.warning(f"Error counting media files: {e}")
 
-        return count
+        return image_count, video_count
 
     def _on_start_processing(self) -> None:
         """Handle start processing button."""
@@ -395,25 +493,17 @@ class MainWindow(QMainWindow):
                 classify=True,
                 crop=True,
                 export_csv=self.config_manager.get_value("output.export_csv", True),
-                save_annotated=self.config_manager.get_value(
-                    "output.save_annotated", False
-                ),
+                save_annotated=self.config_manager.get_value("output.save_annotated", False),
                 continue_on_error=True,
             )
 
             # Get configuration values
-            output_dir = Path(
-                self.config_manager.get_value("output.base_dir", "./output")
-            )
+            output_dir = Path(self.config_manager.get_value("output.base_dir", "./output"))
             species_db_path = self.config_manager.get_value(
                 "classification.species_db", "data/species_db.json"
             )
-            detection_conf = self.config_manager.get_value(
-                "detection.confidence_threshold", 0.25
-            )
-            classification_conf = self.config_manager.get_value(
-                "classification.threshold", 0.5
-            )
+            detection_conf = self.config_manager.get_value("detection.confidence_threshold", 0.25)
+            classification_conf = self.config_manager.get_value("classification.threshold", 0.5)
             use_features = self.config_manager.get_value(
                 "classification.use_feature_classifier", False
             )
@@ -435,9 +525,7 @@ class MainWindow(QMainWindow):
                 self,
             )
             self.processing_thread.progress_updated.connect(self._on_progress_update)
-            self.processing_thread.processing_complete.connect(
-                self._on_processing_complete
-            )
+            self.processing_thread.processing_complete.connect(self._on_processing_complete)
             self.processing_thread.processing_error.connect(self._on_processing_error)
 
             # Update UI state
@@ -445,7 +533,6 @@ class MainWindow(QMainWindow):
             self.stop_btn.setEnabled(True)
             self.select_file_btn.setEnabled(False)
             self.select_dir_btn.setEnabled(False)
-            self.settings_btn.setEnabled(False)
 
             # Clear previous results
             self.results_text.clear()
@@ -485,9 +572,7 @@ class MainWindow(QMainWindow):
                 self.progress_bar.setValue(percentage)
 
             # Update status
-            status_text = (
-                f"Processing: {progress.processed_images}/{progress.total_images} images"
-            )
+            status_text = f"Processing: {progress.processed_images}/{progress.total_images} images"
             if progress.current_image:
                 status_text += f" - {progress.current_image}"
             self.status_label.setText(status_text)
@@ -604,13 +689,60 @@ class MainWindow(QMainWindow):
                 f"Failed to open settings: {e}",
             )
 
+    def _on_open_model_management(self) -> None:
+        """Open model management dialog."""
+        try:
+            if self.model_manager is None:
+                self._initialize_model_manager()
+                if self.model_manager is None:
+                    return
+
+            dialog = ModelManagementDialog(self.model_manager, self)
+            dialog.exec()
+            logger.info("Model management dialog closed")
+
+        except Exception as e:
+            logger.error(f"Model management dialog error: {e}", exc_info=True)
+            QMessageBox.critical(
+                self,
+                "Model Management Error",
+                f"Failed to open model management: {e}",
+            )
+
+    def _on_show_about(self) -> None:
+        """Show about dialog."""
+        about_text = (
+            "<h2>Game Camera Analyzer</h2>"
+            "<p><b>Version:</b> 2.0.0</p>"
+            "<p><b>Advanced Features Edition</b></p>"
+            "<br>"
+            "<p>An intelligent image analysis tool for wildlife camera trap images and videos.</p>"
+            "<br>"
+            "<p><b>Features:</b></p>"
+            "<ul>"
+            "<li>YOLO-based object detection and classification</li>"
+            "<li>Parallel batch processing with automatic multithreading</li>"
+            "<li>Automatic video processing and frame extraction</li>"
+            "<li>Model management and benchmarking</li>"
+            "<li>Automated cropping and CSV export</li>"
+            "</ul>"
+            "<br>"
+            "<p><b>Developer:</b> Randy Northrup</p>"
+            "<p><b>GitHub:</b> <a href='https://github.com/RandyNorthrup/game-camera-analyzer'>github.com/RandyNorthrup/game-camera-analyzer</a></p>"
+            "<br>"
+            "<p><b>Developed with:</b> Python, PySide6, PyTorch, Ultralytics YOLO</p>"
+            "<p><b>License:</b> MIT</p>"
+        )
+
+        QMessageBox.about(self, "About Game Camera Analyzer", about_text)
+        logger.info("About dialog shown")
+
     def _reset_ui_state(self) -> None:
         """Reset UI to ready state."""
         self.process_btn.setEnabled(True)
         self.stop_btn.setEnabled(False)
         self.select_file_btn.setEnabled(True)
         self.select_dir_btn.setEnabled(True)
-        self.settings_btn.setEnabled(True)
 
     def _show_error(self, title: str, message: str) -> None:
         """

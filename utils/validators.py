@@ -299,6 +299,31 @@ def validate_confidence_threshold(threshold: float) -> float:
     return float(threshold)
 
 
+def validate_iou_threshold(threshold: float) -> float:
+    """
+    Validate an IoU (Intersection over Union) threshold value.
+
+    Args:
+        threshold: IoU threshold (should be between 0 and 1)
+
+    Returns:
+        Validated threshold
+
+    Raises:
+        ValidationError: If threshold is not in valid range
+    """
+    if not isinstance(threshold, (int, float)):
+        raise ValidationError(
+            f"IoU threshold must be numeric, got {type(threshold).__name__}"
+        )
+
+    if not 0.0 <= threshold <= 1.0:
+        raise ValidationError(f"IoU threshold must be between 0.0 and 1.0, got {threshold}")
+
+    logger.debug(f"Validated IoU threshold: {threshold}")
+    return float(threshold)
+
+
 def validate_positive_integer(value: int, name: str, min_value: int = 1) -> int:
     """
     Validate a positive integer parameter.

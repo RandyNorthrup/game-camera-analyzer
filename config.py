@@ -44,6 +44,9 @@ class ClassificationConfig:
     model: str = "efficientnet_b0"
     confidence_threshold: float = 0.7
     top_k: int = 5
+    use_feature_classifier: bool = False
+    max_alternatives: int = 3
+    species_db: str = "data/species_db.json"
 
 
 @dataclass
@@ -54,6 +57,10 @@ class ProcessingConfig:
     num_workers: int = 4
     use_gpu: bool = True
     cache_models: bool = True
+    enhance_low_light: bool = True  # Automatically enhance dark images
+    denoise_images: bool = False  # Apply denoising to reduce false positives
+    low_light_threshold: int = 80  # Mean brightness threshold for enhancement
+    denoise_strength: int = 3  # Denoising strength (1-10)
 
 
 @dataclass
@@ -65,6 +72,15 @@ class CroppingConfig:
     min_size: int = 224
     max_size: int = 1024
     square_crop: bool = False
+    # GUI fields
+    padding: float = 0.1
+    square_crops: bool = False
+    organize_by_species: bool = True
+    min_width: int = 0
+    min_height: int = 0
+    max_width: int = 0
+    max_height: int = 0
+    jpeg_quality: int = 95
 
 
 @dataclass
@@ -79,6 +95,12 @@ class OutputConfig:
     thumbnail_size: int = 256
     save_metadata_json: bool = False
     export_csv: bool = True
+    # GUI fields
+    csv_delimiter: str = ","
+    include_confidence: bool = True
+    include_alternatives: bool = True
+    include_timestamps: bool = True
+    save_annotated: bool = False
 
 
 @dataclass
@@ -103,6 +125,15 @@ class LoggingConfig:
 
 
 @dataclass
+class ModelConfig:
+    """Configuration for model management."""
+
+    download_dir: str = str(
+        Path.home() / "Documents" / "GameCameraAnalyzer" / "models"
+    )
+
+
+@dataclass
 class GUIConfig:
     """Configuration for GUI."""
 
@@ -112,6 +143,7 @@ class GUIConfig:
     remember_window_size: bool = True
     show_confidence_scores: bool = True
     auto_process: bool = False
+    last_directory: str = ""
 
 
 @dataclass
@@ -125,6 +157,7 @@ class AppConfig:
     output: OutputConfig = field(default_factory=OutputConfig)
     csv_export: CSVExportConfig = field(default_factory=CSVExportConfig)
     logging_config: LoggingConfig = field(default_factory=LoggingConfig)
+    model: ModelConfig = field(default_factory=ModelConfig)
     gui: GUIConfig = field(default_factory=GUIConfig)
 
 

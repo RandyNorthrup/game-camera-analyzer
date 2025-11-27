@@ -457,7 +457,7 @@ class SettingsDialog(QDialog):
 
             # Classification settings
             self.class_threshold_spin.setValue(
-                self.config_manager.get_value("classification.threshold", 0.5)
+                self.config_manager.get_value("classification.confidence_threshold", 0.7)
             )
             self.use_feature_check.setChecked(
                 self.config_manager.get_value("classification.use_feature_classifier", False)
@@ -536,7 +536,7 @@ class SettingsDialog(QDialog):
             "detection.confidence_threshold": self.confidence_spin.value(),
             "detection.iou_threshold": self.iou_spin.value(),
             "detection.max_detections": self.max_detections_spin.value(),
-            "classification.threshold": self.class_threshold_spin.value(),
+            "classification.confidence_threshold": self.class_threshold_spin.value(),
             "classification.use_feature_classifier": self.use_feature_check.isChecked(),
             "classification.max_alternatives": self.max_alternatives_spin.value(),
             "classification.species_db": self.species_db_edit.text(),
@@ -588,7 +588,7 @@ class SettingsDialog(QDialog):
             self.config_manager.set_value("detection.max_detections", self.max_detections_spin.value())
 
             # Classification settings
-            self.config_manager.set_value("classification.threshold", self.class_threshold_spin.value())
+            self.config_manager.set_value("classification.confidence_threshold", self.class_threshold_spin.value())
             self.config_manager.set_value("classification.use_feature_classifier", self.use_feature_check.isChecked())
             self.config_manager.set_value("classification.max_alternatives", self.max_alternatives_spin.value())
             self.config_manager.set_value("classification.species_db", self.species_db_edit.text())
@@ -787,7 +787,7 @@ class SettingsDialog(QDialog):
             "detection.confidence_threshold": self.confidence_spin.value(),
             "detection.iou_threshold": self.iou_spin.value(),
             "detection.max_detections": self.max_detections_spin.value(),
-            "classification.threshold": self.class_threshold_spin.value(),
+            "classification.confidence_threshold": self.class_threshold_spin.value(),
             "classification.use_feature_classifier": self.use_feature_check.isChecked(),
             "classification.max_alternatives": self.max_alternatives_spin.value(),
             "classification.species_db": self.species_db_edit.text(),
