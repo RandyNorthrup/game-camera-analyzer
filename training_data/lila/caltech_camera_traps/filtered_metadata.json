@@ -1,0 +1,2402 @@
+[
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2013-11-04 18:37:07",
+      "seq_id": "6f27ed66-5567-11e8-9e92-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "26",
+      "rights_holder": "Erin Boydston",
+      "file_name": "5a0b016f-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a0b016f-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "38bd1ea8-7d68-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "5a0b016f-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-05-09 07:33:45",
+      "seq_id": "6f04895c-5567-11e8-a3d6-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "59b93afb-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59b93afb-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 16,
+        "id": "38243",
+        "image_id": "59b93afb-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "cat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-03-29 02:34:13",
+      "seq_id": "6f0385b5-5567-11e8-a80b-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "59641f56-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59641f56-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "24844",
+        "image_id": "59641f56-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-06-27 08:29:02",
+      "seq_id": "7013c982-5567-11e8-be89-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "61",
+      "rights_holder": "Justin Brown",
+      "file_name": "59b93a3b-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59b93a3b-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 10,
+        "id": "25088",
+        "image_id": "59b93a3b-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-09-29 18:14:45",
+      "seq_id": "70115511-5567-11e8-a1fd-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "41",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a217843-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a217843-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "491ac144-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "5a217843-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2013-12-25 21:48:54",
+      "seq_id": "6f8257b0-5567-11e8-b82e-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "57",
+      "rights_holder": "Erin Boydston",
+      "file_name": "598de824-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "598de824-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "eb90a843-7d6c-11e7-884d-7845c41c2c67",
+        "category_id": 3,
+        "image_id": "598de824-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "raccoon"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-04-19 22:13:23",
+      "seq_id": "6f18c3eb-5567-11e8-8b81-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "46",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a1cb0d8-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a1cb0d8-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "24715",
+        "image_id": "5a1cb0d8-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-03-15 02:54:19",
+      "seq_id": "6f188c02-5567-11e8-acd9-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "46",
+      "rights_holder": "Justin Brown",
+      "file_name": "59e919aa-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59e919aa-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "32354",
+        "image_id": "59e919aa-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2011-06-27 03:17:00",
+      "seq_id": "70088630-5567-11e8-89dc-dca9047ef277",
+      "height": 1536,
+      "width": 2048,
+      "location": "36",
+      "rights_holder": "Erin Boydston",
+      "file_name": "59673655-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59673655-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "d5c3b1df-7de6-11e7-884d-7845c41c2c67",
+        "category_id": 9,
+        "image_id": "59673655-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "coyote"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-06-07 07:49:31",
+      "seq_id": "7011bff3-5567-11e8-b72c-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "41",
+      "rights_holder": "Justin Brown",
+      "file_name": "599a5a64-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "599a5a64-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "5631183f-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "599a5a64-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-12-20 07:25:57",
+      "seq_id": "6f01916e-5567-11e8-84c5-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "59e91a9f-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59e91a9f-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "id": "4e777f8a-7d5b-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "59e91a9f-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-05-30 23:08:24",
+      "seq_id": "6f0528a8-5567-11e8-b636-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "5976a3a9-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5976a3a9-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 16,
+        "id": "36130",
+        "image_id": "5976a3a9-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "cat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-07-01 02:09:04",
+      "seq_id": "6f1924ab-5567-11e8-b72e-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "5",
+      "rights_holder": "Justin Brown",
+      "file_name": "59c8031c-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59c8031c-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "0529df05-7d5d-11e7-884d-7845c41c2c67",
+        "category_id": 1,
+        "image_id": "59c8031c-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2013-08-02 11:27:24",
+      "seq_id": "7011e40c-5567-11e8-9ad6-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "44",
+      "rights_holder": "Justin Brown",
+      "file_name": "5971fb64-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5971fb64-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "5d58dda9-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "5971fb64-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2011-11-14 01:41:00",
+      "seq_id": "700b52a3-5567-11e8-85de-dca9047ef277",
+      "height": 1536,
+      "width": 2048,
+      "location": "0",
+      "rights_holder": "Erin Boydston",
+      "file_name": "5973880a-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5973880a-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 7,
+        "id": "27534",
+        "image_id": "5973880a-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "skunk"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2015-03-25 01:22:09",
+      "seq_id": "7012690c-5567-11e8-953b-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "27",
+      "rights_holder": "Justin Brown",
+      "file_name": "59c80528-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59c80528-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "id": "782d413f-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "59c80528-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-04-16 06:34:38",
+      "seq_id": "6f05abdc-5567-11e8-9ca0-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "40",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a0b01f5-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a0b01f5-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "category_id": 16,
+        "id": "1638",
+        "image_id": "5a0b01f5-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "cat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-02-18 16:46:45",
+      "seq_id": "701887ba-5567-11e8-a1c0-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "59",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a116d59-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a116d59-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "0f8ff9dc-7de9-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "5a116d59-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-04-05 20:46:38",
+      "seq_id": "6f079b9c-5567-11e8-835a-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "7",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a17dd15-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a17dd15-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 9,
+        "id": "6672",
+        "image_id": "5a17dd15-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "coyote"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2014-03-28 08:43:52",
+      "seq_id": "6f86adcf-5567-11e8-8908-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "57",
+      "rights_holder": "Erin Boydston",
+      "file_name": "59aadbcf-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59aadbcf-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "fc411c04-7d6c-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "59aadbcf-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-02-02 22:17:28",
+      "seq_id": "70193445-5567-11e8-a0ce-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "16",
+      "rights_holder": "Justin Brown",
+      "file_name": "59c4bfa5-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59c4bfa5-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "id": "20427b47-7de9-11e7-884d-7845c41c2c67",
+        "category_id": 51,
+        "image_id": "59c4bfa5-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "fox"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-05-25 03:58:00",
+      "seq_id": "70123511-5567-11e8-adfb-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "27",
+      "rights_holder": "Justin Brown",
+      "file_name": "59fe2293-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59fe2293-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "65b11331-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "59fe2293-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2013-10-21 02:47:16",
+      "seq_id": "6f7e672b-5567-11e8-9309-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "57",
+      "rights_holder": "Erin Boydston",
+      "file_name": "598c5c32-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "598c5c32-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "ecc1d494-7d6c-11e7-884d-7845c41c2c67",
+        "category_id": 3,
+        "image_id": "598c5c32-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "raccoon"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2013-12-09 19:20:01",
+      "seq_id": "6f8110f5-5567-11e8-a2e3-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "57",
+      "rights_holder": "Erin Boydston",
+      "file_name": "59e919e9-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59e919e9-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "e599c7da-7d6c-11e7-884d-7845c41c2c67",
+        "category_id": 3,
+        "image_id": "59e919e9-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "raccoon"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-08-07 22:31:25",
+      "seq_id": "6f1ca328-5567-11e8-be55-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "51",
+      "rights_holder": "Justin Brown",
+      "file_name": "599bea78-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "599bea78-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "18363",
+        "image_id": "599bea78-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-03-19 01:28:03",
+      "seq_id": "6f188ede-5567-11e8-84ac-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "46",
+      "rights_holder": "Justin Brown",
+      "file_name": "59da8969-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59da8969-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 10,
+        "id": "506",
+        "image_id": "59da8969-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-12-17 14:01:49",
+      "seq_id": "6f018626-5567-11e8-a0e2-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "59d8ebf0-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59d8ebf0-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "48844e9c-7d5b-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "59d8ebf0-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-05-27 08:59:17",
+      "seq_id": "6f0a9d9c-5567-11e8-a2e8-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "24",
+      "rights_holder": "Justin Brown",
+      "file_name": "59d27ccc-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59d27ccc-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "c4d6f85a-7d5b-11e7-884d-7845c41c2c67",
+        "category_id": 5,
+        "image_id": "59d27ccc-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "squirrel"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-01-21 07:21:27",
+      "seq_id": "6f0c24c7-5567-11e8-893d-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "43",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a217832-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a217832-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "31151",
+        "image_id": "5a217832-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-05-28 21:56:23",
+      "seq_id": "6f05138f-5567-11e8-8d41-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a1fe84c-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a1fe84c-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "2767",
+        "image_id": "5a1fe84c-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-03-12 20:30:24",
+      "seq_id": "6f076e87-5567-11e8-8d19-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "7",
+      "rights_holder": "Justin Brown",
+      "file_name": "59bac849-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59bac849-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "32236",
+        "image_id": "59bac849-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-05-30 01:37:08",
+      "seq_id": "6f18ffa3-5567-11e8-8f26-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "46",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a0b0192-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a0b0192-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "4333",
+        "image_id": "5a0b0192-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-10-06 11:49:18",
+      "seq_id": "6f003940-5567-11e8-afb4-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a2177bf-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a2177bf-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "category_id": 16,
+        "id": "2303",
+        "image_id": "5a2177bf-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "cat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-11-17 12:32:13",
+      "seq_id": "7019668c-5567-11e8-923e-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "53",
+      "rights_holder": "Justin Brown",
+      "file_name": "59eaba8a-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59eaba8a-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "id": "25061699-7de9-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "59eaba8a-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-12-15 09:50:03",
+      "seq_id": "6f0be74a-5567-11e8-8662-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "43",
+      "rights_holder": "Justin Brown",
+      "file_name": "59af966d-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59af966d-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "id": "ccd4e90b-7d5b-11e7-884d-7845c41c2c67",
+        "category_id": 6,
+        "image_id": "59af966d-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "bobcat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-09-05 06:05:22",
+      "seq_id": "7015a951-5567-11e8-9fc1-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "13",
+      "rights_holder": "Justin Brown",
+      "file_name": "59929052-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59929052-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "c48ca06e-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "59929052-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-03-08 12:30:35",
+      "seq_id": "6f09f233-5567-11e8-8aa9-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "33",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a27dad1-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a27dad1-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 3,
+        "id": "17367",
+        "image_id": "5a27dad1-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "raccoon"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-05-31 05:32:16",
+      "seq_id": "6f052c54-5567-11e8-b044-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a2c8575-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a2c8575-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 16,
+        "id": "10093",
+        "image_id": "5a2c8575-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "cat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-02-20 04:49:24",
+      "seq_id": "6f0a83fa-5567-11e8-804b-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "24",
+      "rights_holder": "Justin Brown",
+      "file_name": "598de771-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "598de771-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "id": "c72d4a89-7d5b-11e7-884d-7845c41c2c67",
+        "category_id": 3,
+        "image_id": "598de771-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "raccoon"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2013-10-28 14:33:47",
+      "seq_id": "7014fcf0-5567-11e8-ab04-dca9047ef277",
+      "height": 584,
+      "width": 800,
+      "location": "34",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a1cb10c-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a1cb10c-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "b1658f36-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "5a1cb10c-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-05-02 23:04:39",
+      "seq_id": "70159028-5567-11e8-9da0-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "13",
+      "rights_holder": "Justin Brown",
+      "file_name": "59bca646-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59bca646-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "c214c7b9-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "59bca646-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-04-30 09:29:33",
+      "seq_id": "6f199a0f-5567-11e8-9261-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "64",
+      "rights_holder": "Justin Brown",
+      "file_name": "59ccd2a7-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59ccd2a7-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "53eb0d8c-7d5d-11e7-884d-7845c41c2c67",
+        "category_id": 16,
+        "image_id": "59ccd2a7-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "cat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-09-18 23:14:54",
+      "seq_id": "6f000b51-5567-11e8-9c1b-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "59ffbb81-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59ffbb81-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 16,
+        "id": "4512",
+        "image_id": "59ffbb81-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "cat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-02-28 12:11:28",
+      "seq_id": "6f0c4b57-5567-11e8-ab93-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "43",
+      "rights_holder": "Justin Brown",
+      "file_name": "59ac6cd8-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59ac6cd8-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "e2e1f342-7d5b-11e7-884d-7845c41c2c67",
+        "category_id": 9,
+        "image_id": "59ac6cd8-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "coyote"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-05-20 01:12:11",
+      "seq_id": "6f18e9a6-5567-11e8-994d-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "46",
+      "rights_holder": "Justin Brown",
+      "file_name": "599d7ee4-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "599d7ee4-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "f2ae61f2-7d5c-11e7-884d-7845c41c2c67",
+        "category_id": 3,
+        "image_id": "599d7ee4-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "raccoon"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2015-03-22 19:00:41",
+      "seq_id": "70142f28-5567-11e8-af49-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "61",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a07cbea-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a07cbea-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 10,
+        "id": "38155",
+        "image_id": "5a07cbea-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-05-14 21:13:29",
+      "seq_id": "6f04a9fa-5567-11e8-ba84-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "59f9459e-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59f9459e-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "17724",
+        "image_id": "59f9459e-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-06-05 04:03:52",
+      "seq_id": "6f0891c7-5567-11e8-9ff6-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "33",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a296689-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a296689-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "a9113d60-7d5b-11e7-884d-7845c41c2c67",
+        "category_id": 3,
+        "image_id": "5a296689-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "raccoon"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2013-10-17 08:39:43",
+      "seq_id": "6f2759c7-5567-11e8-9652-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "26",
+      "rights_holder": "Erin Boydston",
+      "file_name": "59f947d4-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59f947d4-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "3dada23c-7d68-11e7-884d-7845c41c2c67",
+        "category_id": 9,
+        "image_id": "59f947d4-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "coyote"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-11-21 22:33:54",
+      "seq_id": "6f0bc261-5567-11e8-b812-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "43",
+      "rights_holder": "Justin Brown",
+      "file_name": "5976a2d4-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5976a2d4-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "cba3a798-7d5b-11e7-884d-7845c41c2c67",
+        "category_id": 9,
+        "image_id": "5976a2d4-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "coyote"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-02-03 23:58:56",
+      "seq_id": "7011f119-5567-11e8-a628-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "44",
+      "rights_holder": "Justin Brown",
+      "file_name": "59973d74-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59973d74-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "5e8a28d7-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "59973d74-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-06-10 12:31:00",
+      "seq_id": "6efe41b5-5567-11e8-b07b-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "598308fa-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "598308fa-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "8867",
+        "image_id": "598308fa-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2015-04-18 01:34:25",
+      "seq_id": "701314e3-5567-11e8-b787-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "27",
+      "rights_holder": "Justin Brown",
+      "file_name": "59e9194d-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59e9194d-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "id": "6cd819bf-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "59e9194d-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-06-12 09:11:25",
+      "seq_id": "6efe57b0-5567-11e8-a6b6-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "59fae5ee-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59fae5ee-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 16,
+        "id": "21147",
+        "image_id": "59fae5ee-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "cat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-05-14 20:18:07",
+      "seq_id": "6f07cc02-5567-11e8-8c2a-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "7",
+      "rights_holder": "Justin Brown",
+      "file_name": "59ac69d9-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59ac69d9-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "4138",
+        "image_id": "59ac69d9-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-03-27 12:13:11",
+      "seq_id": "6f0376c0-5567-11e8-9e3d-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "59b7a844-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59b7a844-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "category_id": 16,
+        "id": "5686",
+        "image_id": "59b7a844-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "cat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2012-02-04 00:29:00",
+      "seq_id": "700981fd-5567-11e8-b496-dca9047ef277",
+      "height": 1536,
+      "width": 2048,
+      "location": "36",
+      "rights_holder": "Erin Boydston",
+      "file_name": "59edf1e3-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59edf1e3-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "d822114f-7de6-11e7-884d-7845c41c2c67",
+        "category_id": 9,
+        "image_id": "59edf1e3-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "coyote"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2013-12-16 02:28:43",
+      "seq_id": "6fe10697-5567-11e8-8441-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "23",
+      "rights_holder": "Erin Boydston",
+      "file_name": "59f2c274-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59f2c274-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "555ca7f2-7d70-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "59f2c274-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2014-07-09 21:53:01",
+      "seq_id": "6f8c6d4a-5567-11e8-a31a-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "57",
+      "rights_holder": "Erin Boydston",
+      "file_name": "59b482bb-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59b482bb-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "fb0f5558-7d6c-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "59b482bb-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2014-08-15 04:30:05",
+      "seq_id": "6f8e039e-5567-11e8-b3b2-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "57",
+      "rights_holder": "Erin Boydston",
+      "file_name": "59c99e27-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59c99e27-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "12a2a587-7d6d-11e7-884d-7845c41c2c67",
+        "category_id": 9,
+        "image_id": "59c99e27-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "coyote"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2013-10-16 04:31:53",
+      "seq_id": "7017170f-5567-11e8-a885-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "6",
+      "rights_holder": "Justin Brown",
+      "file_name": "59da8b5a-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59da8b5a-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "e709cc26-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "59da8b5a-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-02-07 01:30:08",
+      "seq_id": "6f028b51-5567-11e8-b214-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a0c9b96-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a0c9b96-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "32455",
+        "image_id": "5a0c9b96-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-01-18 12:21:18",
+      "seq_id": "6f025068-5567-11e8-a580-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "598f7547-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "598f7547-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "48844ec4-7d5b-11e7-884d-7845c41c2c67",
+        "category_id": 1,
+        "image_id": "598f7547-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-04-11 16:57:38",
+      "seq_id": "6f0408ae-5567-11e8-bd37-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "598f76c9-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "598f76c9-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "6d76306b-7d5b-11e7-884d-7845c41c2c67",
+        "category_id": 16,
+        "image_id": "598f76c9-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "cat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2013-10-25 12:06:10",
+      "seq_id": "7014d6bd-5567-11e8-a6d1-dca9047ef277",
+      "height": 584,
+      "width": 800,
+      "location": "34",
+      "rights_holder": "Justin Brown",
+      "file_name": "59eab755-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59eab755-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "ab6d215f-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "59eab755-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-08-15 03:11:58",
+      "seq_id": "6f1783e1-5567-11e8-ae2c-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "46",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a062f01-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a062f01-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 3,
+        "id": "42893",
+        "image_id": "5a062f01-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "raccoon"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2014-10-04 03:56:56",
+      "seq_id": "6f8f8370-5567-11e8-a2e9-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "57",
+      "rights_holder": "Erin Boydston",
+      "file_name": "598f7796-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "598f7796-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "e92d7fbe-7d6c-11e7-884d-7845c41c2c67",
+        "category_id": 3,
+        "image_id": "598f7796-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "raccoon"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2015-05-12 19:46:00",
+      "seq_id": "701948ab-5567-11e8-a402-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "22",
+      "rights_holder": "Justin Brown",
+      "file_name": "59af9700-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59af9700-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "23d4b345-7de9-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "59af9700-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2014-05-21 09:19:51",
+      "seq_id": "6fe80754-5567-11e8-a892-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "23",
+      "rights_holder": "Erin Boydston",
+      "file_name": "5968c171-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5968c171-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "51f526f4-7d70-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "5968c171-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-12-07 09:04:33",
+      "seq_id": "6f17ec40-5567-11e8-836e-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "46",
+      "rights_holder": "Justin Brown",
+      "file_name": "599a59f5-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "599a59f5-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 6,
+        "id": "8605",
+        "image_id": "599a59f5-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "bobcat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-06-13 12:51:14",
+      "seq_id": "6f0aeba8-5567-11e8-81c1-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "43",
+      "rights_holder": "Justin Brown",
+      "file_name": "597cd3cd-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "597cd3cd-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "id": "d2ca0b50-7d5b-11e7-884d-7845c41c2c67",
+        "category_id": 6,
+        "image_id": "597cd3cd-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "bobcat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-09-25 01:41:52",
+      "seq_id": "6f17b130-5567-11e8-bcde-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "46",
+      "rights_holder": "Justin Brown",
+      "file_name": "599fc090-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "599fc090-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "e49a2e71-7d5c-11e7-884d-7845c41c2c67",
+        "category_id": 3,
+        "image_id": "599fc090-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "raccoon"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2012-03-20 10:01:00",
+      "seq_id": "700a684c-5567-11e8-92d2-dca9047ef277",
+      "height": 1536,
+      "width": 2048,
+      "location": "29",
+      "rights_holder": "Erin Boydston",
+      "file_name": "59f946dd-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59f946dd-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "ec68b7d9-7de6-11e7-884d-7845c41c2c67",
+        "category_id": 6,
+        "image_id": "59f946dd-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "bobcat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2013-10-03 18:15:52",
+      "seq_id": "7014beb5-5567-11e8-8d75-dca9047ef277",
+      "height": 584,
+      "width": 800,
+      "location": "34",
+      "rights_holder": "Justin Brown",
+      "file_name": "59da8a38-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59da8a38-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "aa3cf9d5-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 6,
+        "image_id": "59da8a38-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "bobcat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-06-10 03:08:43",
+      "seq_id": "6f0ce0ab-5567-11e8-884e-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "43",
+      "rights_holder": "Justin Brown",
+      "file_name": "59a94dd5-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59a94dd5-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "19164",
+        "image_id": "59a94dd5-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-03-18 12:31:31",
+      "seq_id": "6f033d4a-5567-11e8-9dcc-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "5998cfae-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5998cfae-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 16,
+        "id": "33932",
+        "image_id": "5998cfae-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "cat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-03-27 06:12:28",
+      "seq_id": "7015bff0-5567-11e8-86e1-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "1",
+      "rights_holder": "Justin Brown",
+      "file_name": "59b4835d-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59b4835d-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "c48ca150-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 9,
+        "image_id": "59b4835d-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "coyote"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-02-12 07:27:25",
+      "seq_id": "701eba7d-5567-11e8-beff-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "39",
+      "rights_holder": "Justin Brown",
+      "file_name": "59df5dc8-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59df5dc8-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "a3fb12d3-7de9-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "59df5dc8-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-06-01 03:16:05",
+      "seq_id": "6f088afa-5567-11e8-a8d1-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "33",
+      "rights_holder": "Justin Brown",
+      "file_name": "598307b9-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "598307b9-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "13389",
+        "image_id": "598307b9-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2013-10-20 03:04:52",
+      "seq_id": "6f7e591c-5567-11e8-b71f-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "57",
+      "rights_holder": "Erin Boydston",
+      "file_name": "59ccd2ca-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59ccd2ca-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "0ceffe74-7d6d-11e7-884d-7845c41c2c67",
+        "category_id": 9,
+        "image_id": "59ccd2ca-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "coyote"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-10-20 06:23:53",
+      "seq_id": "701c4b2e-5567-11e8-8372-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "45",
+      "rights_holder": "Justin Brown",
+      "file_name": "59d8eca6-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59d8eca6-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "id": "6a2f65d6-7de9-11e7-884d-7845c41c2c67",
+        "category_id": 21,
+        "image_id": "59d8eca6-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "badger"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-03-28 21:36:07",
+      "seq_id": "6f078382-5567-11e8-b103-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "7",
+      "rights_holder": "Justin Brown",
+      "file_name": "59c31be6-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59c31be6-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "40702",
+        "image_id": "59c31be6-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2013-11-26 22:58:41",
+      "seq_id": "6f808802-5567-11e8-8c82-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "57",
+      "rights_holder": "Erin Boydston",
+      "file_name": "59d0e4f6-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59d0e4f6-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "66a594c6-7d6c-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "59d0e4f6-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2015-02-02 07:06:32",
+      "seq_id": "7010e5d4-5567-11e8-b0be-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "25",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a0fd0f9-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a0fd0f9-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "386983d4-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "5a0fd0f9-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-02-23 21:27:58",
+      "seq_id": "6f02c6b3-5567-11e8-b43b-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "59f1284f-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59f1284f-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "27818",
+        "image_id": "59f1284f-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-09-26 12:54:56",
+      "seq_id": "6f08e31c-5567-11e8-a425-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "33",
+      "rights_holder": "Justin Brown",
+      "file_name": "598de7fc-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "598de7fc-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "id": "b3ccc5ad-7d5b-11e7-884d-7845c41c2c67",
+        "category_id": 3,
+        "image_id": "598de7fc-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "raccoon"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-12-13 16:39:21",
+      "seq_id": "6f095694-5567-11e8-bd2a-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "33",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a096c23-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a096c23-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 5,
+        "id": "20060",
+        "image_id": "5a096c23-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "squirrel"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2013-10-15 04:03:49",
+      "seq_id": "701582e1-5567-11e8-ac03-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "13",
+      "rights_holder": "Justin Brown",
+      "file_name": "59641fcf-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59641fcf-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "id": "bd51340c-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "59641fcf-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-05-25 19:27:33",
+      "seq_id": "70117d97-5567-11e8-adbb-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "41",
+      "rights_holder": "Justin Brown",
+      "file_name": "5976a4e9-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5976a4e9-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "529d9344-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "5976a4e9-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-06-02 06:44:36",
+      "seq_id": "6f191733-5567-11e8-ad43-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "5",
+      "rights_holder": "Justin Brown",
+      "file_name": "5968bf72-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5968bf72-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 3
+    },
+    "annotations": [
+      {
+        "id": "065b1ead-7d5d-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "5968bf72-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2014-05-25 07:38:36",
+      "seq_id": "6fe83f3a-5567-11e8-b6c3-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "23",
+      "rights_holder": "Erin Boydston",
+      "file_name": "5a2c857f-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a2c857f-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "545a44ec-7d70-11e7-884d-7845c41c2c67",
+        "category_id": 10,
+        "image_id": "5a2c857f-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "rabbit"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-03-18 06:09:51",
+      "seq_id": "701eaa66-5567-11e8-a4ae-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "19",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a130abd-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a130abd-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "a2cac000-7de9-11e7-884d-7845c41c2c67",
+        "category_id": 6,
+        "image_id": "5a130abd-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "bobcat"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-03-01 18:55:19",
+      "seq_id": "6f1980bd-5567-11e8-ab03-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "64",
+      "rights_holder": "Justin Brown",
+      "file_name": "5968bf7b-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5968bf7b-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "6b600115-7d5d-11e7-884d-7845c41c2c67",
+        "category_id": 9,
+        "image_id": "5968bf7b-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "coyote"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2014-06-05 19:10:44",
+      "seq_id": "7011a78a-5567-11e8-9cf6-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "41",
+      "rights_holder": "Justin Brown",
+      "file_name": "59d27c48-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59d27c48-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "576e3c47-7de8-11e7-884d-7845c41c2c67",
+        "category_id": 34,
+        "image_id": "59d27c48-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "deer"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2014-07-10 06:04:12",
+      "seq_id": "6feb210a-5567-11e8-8eeb-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "23",
+      "rights_holder": "Erin Boydston",
+      "file_name": "598306fb-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "598306fb-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "0f5545b2-7d71-11e7-884d-7845c41c2c67",
+        "category_id": 9,
+        "image_id": "598306fb-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "coyote"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 1,
+      "date_captured": "2014-01-12 05:08:14",
+      "seq_id": "6fe23cb5-5567-11e8-95ee-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "23",
+      "rights_holder": "Erin Boydston",
+      "file_name": "596d6501-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "596d6501-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "0f55454e-7d71-11e7-884d-7845c41c2c67",
+        "category_id": 9,
+        "image_id": "596d6501-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "coyote"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-06-01 23:40:17",
+      "seq_id": "6f088c3a-5567-11e8-9cdd-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "33",
+      "rights_holder": "Justin Brown",
+      "file_name": "5a07cba6-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5a07cba6-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "id": "1b796549-dab6-4574-9bc4-02af63da0258",
+        "category_id": 1,
+        "image_id": "5a07cba6-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2011-07-24 20:44:34",
+      "seq_id": "6eff5980-5567-11e8-83aa-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "38",
+      "rights_holder": "Justin Brown",
+      "file_name": "5971fa6f-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "5971fa6f-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 1,
+        "id": "30915",
+        "image_id": "5971fa6f-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "opossum"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-04-04 01:08:39",
+      "seq_id": "6f079911-5567-11e8-92f1-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "7",
+      "rights_holder": "Justin Brown",
+      "file_name": "59ddc164-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59ddc164-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 2
+    },
+    "annotations": [
+      {
+        "category_id": 9,
+        "id": "18409",
+        "image_id": "59ddc164-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "coyote"
+    ]
+  },
+  {
+    "image": {
+      "seq_num_frames": 3,
+      "date_captured": "2012-01-03 03:52:42",
+      "seq_id": "6f0695c5-5567-11e8-af49-dca9047ef277",
+      "height": 1494,
+      "width": 2048,
+      "location": "18",
+      "rights_holder": "Justin Brown",
+      "file_name": "59bac970-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "id": "59bac970-23d2-11e8-a6a3-ec086b02610b",
+      "frame_num": 1
+    },
+    "annotations": [
+      {
+        "id": "86816b29-7d5b-11e7-884d-7845c41c2c67",
+        "category_id": 3,
+        "image_id": "59bac970-23d2-11e8-a6a3-ec086b02610b"
+      }
+    ],
+    "species": [
+      "raccoon"
+    ]
+  }
+]
