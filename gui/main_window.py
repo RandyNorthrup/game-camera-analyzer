@@ -502,20 +502,63 @@ class MainWindow(QMainWindow):
             species_db_path = self.config_manager.get_value(
                 "classification.species_db", "data/species_db.json"
             )
+            
+            # Detection settings
+            model_name = self.config_manager.get_value("detection.model", "yolov8m.pt")
             detection_conf = self.config_manager.get_value("detection.confidence_threshold", 0.25)
-            classification_conf = self.config_manager.get_value("classification.threshold", 0.5)
+            iou_threshold = self.config_manager.get_value("detection.iou_threshold", 0.45)
+            max_detections = self.config_manager.get_value("detection.max_detections", 20)
+            device = self.config_manager.get_value("detection.device", "auto")
+            
+            # Classification settings
+            classification_conf = self.config_manager.get_value(
+                "classification.confidence_threshold", 0.5
+            )
             use_features = self.config_manager.get_value(
                 "classification.use_feature_classifier", False
             )
+            
+            # Processing settings
+            enhance_low_light = self.config_manager.get_value("processing.enhance_low_light", True)
+            denoise_images = self.config_manager.get_value("processing.denoise_images", False)
+            
+            # Get crop configuration from settings
+            from core.cropping_engine import CropConfig
+            crop_config = CropConfig(
+                padding=self.config_manager.get_value("cropping.padding", 0.1),
+                square_crop=self.config_manager.get_value("cropping.square_crops", False),
+                min_width=self.config_manager.get_value("cropping.min_width", 0),
+                min_height=self.config_manager.get_value("cropping.min_height", 0),
+                max_width=self.config_manager.get_value("cropping.max_width", 0),
+                max_height=self.config_manager.get_value("cropping.max_height", 0),
+                jpeg_quality=self.config_manager.get_value("cropping.jpeg_quality", 95),
+            )
+            
+            # Get export configuration from settings
+            from core.csv_exporter import ExportConfig
+            export_config = ExportConfig(
+                delimiter=self.config_manager.get_value("output.csv_delimiter", ","),
+                include_confidence=self.config_manager.get_value("output.include_confidence", True),
+                include_alternatives=self.config_manager.get_value("output.include_alternatives", True),
+                include_timestamps=self.config_manager.get_value("output.include_timestamps", True),
+            )
 
-            # Create processor
+            # Create processor with proper configuration
             self.processor = BatchProcessor(
                 output_dir=output_dir,
                 species_db_path=species_db_path,
                 batch_config=batch_config,
+                crop_config=crop_config,
+                export_config=export_config,
                 detection_confidence=detection_conf,
                 classification_confidence=classification_conf,
                 use_feature_classifier=use_features,
+                model_name=model_name,
+                iou_threshold=iou_threshold,
+                max_detections=max_detections,
+                device=device,
+                enhance_low_light=enhance_low_light,
+                denoise_images=denoise_images,
             )
 
             # Create and start processing thread

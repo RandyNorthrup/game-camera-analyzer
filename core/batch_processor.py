@@ -156,6 +156,12 @@ class BatchProcessor:
         classification_confidence: float = 0.5,
         use_feature_classifier: bool = False,
         progress_callback: Optional[Callable[[BatchProgress], None]] = None,
+        model_name: str = "yolov8m.pt",
+        iou_threshold: float = 0.45,
+        max_detections: int = 20,
+        device: str = "auto",
+        enhance_low_light: bool = True,
+        denoise_images: bool = False,
     ) -> None:
         """
         Initialize batch processor.
@@ -170,6 +176,12 @@ class BatchProcessor:
             classification_confidence: Minimum confidence for classifications
             use_feature_classifier: Whether to use CNN feature classifier
             progress_callback: Optional callback for progress updates
+            model_name: YOLO model to use (e.g., "yolov8n.pt", "yolov8m.pt")
+            iou_threshold: IoU threshold for NMS
+            max_detections: Maximum detections per image
+            device: Device to use ('auto', 'cpu', 'cuda', 'mps')
+            enhance_low_light: Automatically enhance dark images
+            denoise_images: Apply denoising to reduce false positives
 
         Raises:
             ValueError: If configuration is invalid
@@ -188,6 +200,14 @@ class BatchProcessor:
         self.export_config = export_config or ExportConfig()
         self.progress_callback = progress_callback
 
+        # Store detection settings
+        self.model_name = model_name
+        self.iou_threshold = iou_threshold
+        self.max_detections = max_detections
+        self.device = device
+        self.enhance_low_light = enhance_low_light
+        self.denoise_images = denoise_images
+
         # Create output subdirectories
         self.crops_dir = self.output_dir / "crops"
         self.csv_dir = self.output_dir / "csv"
@@ -196,8 +216,18 @@ class BatchProcessor:
         # Initialize engines
         logger.info("Initializing processing engines...")
 
+        # Create model manager with device setting
+        from models.model_manager import ModelManager
+        model_manager = ModelManager(device=device if device != "auto" else None)
+
         self.detection_engine = DetectionEngine(
-            confidence_threshold=detection_confidence
+            model_name=model_name,
+            confidence_threshold=detection_confidence,
+            iou_threshold=iou_threshold,
+            max_detections=max_detections,
+            model_manager=model_manager,
+            enhance_low_light=enhance_low_light,
+            denoise_images=denoise_images,
         )
 
         if self.batch_config.classify:

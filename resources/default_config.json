@@ -15,7 +15,10 @@
   "classification": {
     "model": "efficientnet_b0",
     "confidence_threshold": 0.7,
-    "top_k": 5
+    "top_k": 5,
+    "use_feature_classifier": false,
+    "max_alternatives": 3,
+    "species_db": "data/species_db.json"
   },
   "processing": {
     "batch_size": 8,
@@ -30,9 +33,17 @@
   "cropping": {
     "strategy": "context",
     "padding_ratio": 0.15,
+    "padding": 0.1,
     "min_size": 224,
     "max_size": 1024,
-    "square_crop": false
+    "square_crop": false,
+    "square_crops": false,
+    "organize_by_species": true,
+    "min_width": 0,
+    "min_height": 0,
+    "max_width": 0,
+    "max_height": 0,
+    "jpeg_quality": 95
   },
   "output": {
     "base_dir": "output",
@@ -42,13 +53,21 @@
     "create_thumbnails": true,
     "thumbnail_size": 256,
     "save_metadata_json": false,
-    "export_csv": true
+    "export_csv": true,
+    "csv_delimiter": ",",
+    "include_confidence": true,
+    "include_alternatives": true,
+    "include_timestamps": true,
+    "save_annotated": false
   },
   "csv_export": {
     "master_filename": "detections_master.csv",
     "summary_filename": "species_summary.csv",
     "include_gps": true,
     "include_exif": true
+  },
+  "model": {
+    "download_dir": "~/.game_camera_analyzer/models"
   },
   "logging": {
     "level": "INFO",
@@ -63,6 +82,7 @@
     "window_height": 800,
     "remember_window_size": true,
     "show_confidence_scores": true,
-    "auto_process": false
+    "auto_process": false,
+    "last_directory": ""
   }
 }

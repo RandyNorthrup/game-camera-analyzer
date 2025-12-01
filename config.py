@@ -129,7 +129,7 @@ class ModelConfig:
     """Configuration for model management."""
 
     download_dir: str = str(
-        Path.home() / "Documents" / "GameCameraAnalyzer" / "models"
+        Path.home() / ".game_camera_analyzer" / "models"
     )
 
 
@@ -319,6 +319,7 @@ class ConfigManager:
             output=OutputConfig(**config_dict.get("output", {})),
             csv_export=CSVExportConfig(**config_dict.get("csv_export", {})),
             logging_config=LoggingConfig(**config_dict.get("logging", {})),
+            model=ModelConfig(**config_dict.get("model", {})),
             gui=GUIConfig(**config_dict.get("gui", {})),
         )
 

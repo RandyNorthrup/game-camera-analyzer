@@ -154,30 +154,25 @@ class ModelManager:
         logger.info(f"Loading YOLO model: {model_name}")
 
         try:
-            # Check if model exists locally
+            # Always use full path to model file
             model_path = self.model_dir / model_name
-            if model_path.exists():
-                logger.info(f"Loading local model: {model_path}")
-                model = YOLO(str(model_path))
-            else:
-                # Download from Ultralytics
-                logger.info(f"Downloading model: {model_name}")
-                model = YOLO(model_name)
-
-                # Save to local directory for future use
-                try:
-                    # Copy downloaded model to our model directory
-                    import shutil
-
-                    # Find where Ultralytics cached the model
-                    ultralytics_cache = Path.home() / ".cache" / "ultralytics"
-                    if ultralytics_cache.exists():
-                        for cached_file in ultralytics_cache.rglob(model_name):
-                            shutil.copy2(cached_file, model_path)
-                            logger.info(f"Saved model to: {model_path}")
-                            break
-                except Exception as e:
-                    logger.warning(f"Could not save model locally: {e}")
+            
+            # If model doesn't exist locally, download it to our directory
+            if not model_path.exists():
+                logger.info(f"Model not found locally, downloading: {model_name}")
+                from models.model_downloader import ModelDownloader
+                
+                downloader = ModelDownloader(download_dir=self.model_dir)
+                download_success = downloader.download_model(model_name)
+                
+                if not download_success:
+                    raise ModelLoadError(f"Failed to download model: {model_name}")
+                
+                logger.info(f"Model downloaded to: {model_path}")
+            
+            # Load model from our local directory (always use full path)
+            logger.info(f"Loading model from: {model_path}")
+            model = YOLO(str(model_path))
 
             # Move model to device
             model.to(self.device)

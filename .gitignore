@@ -1,15 +1,23 @@
-# Python virtual environment
+# ============================================================================
+# Game Camera Analyzer - Project-Specific .gitignore
+# ============================================================================
+
+# ============================================================================
+# Python
+# ============================================================================
+
+# Virtual environments
 venv/
 env/
 ENV/
-.venv
+.venv/
+.Python
 
-# Python cache
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.Python
 
 # Distribution / packaging
 build/
@@ -24,57 +32,231 @@ parts/
 sdist/
 var/
 wheels/
+pip-wheel-metadata/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
 # PyInstaller
 *.manifest
 *.spec
 
-# Unit test / coverage
+# ============================================================================
+# Testing & Coverage
+# ============================================================================
+
+# Pytest
 .pytest_cache/
+.pytest_tmp/
+
+# Coverage
 .coverage
 .coverage.*
+coverage.json
 htmlcov/
 .tox/
 .nox/
+.hypothesis/
 
-# IDEs
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ============================================================================
+# IDEs and Editors
+# ============================================================================
+
+# VS Code
 .vscode/
+# Note: .code-workspace files are ignored by default
+# If you have a custom workspace with specific settings, remove this line:
+*.code-workspace
+
+# PyCharm / IntelliJ
 .idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
 *.swp
 *.swo
 *~
-.DS_Store
 
-# Jupyter Notebook
-.ipynb_checkpoints
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
 
-# Environment variables
-.env
-.env.local
-
-# Model files (large)
-*.pt
-*.pth
-*.onnx
-*.h5
-*.pb
-
-# Output data
-output/
-results/
-exports/
-
-# Logs
-*.log
-logs/
+# ============================================================================
+# Operating System
+# ============================================================================
 
 # macOS
 .DS_Store
 .AppleDouble
 .LSOverride
-
-# Thumbnails
+Icon
 ._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+
+# ============================================================================
+# Game Camera Analyzer - Application-Specific
+# ============================================================================
+
+# User configuration and data
+.game_camera_analyzer/
+
+# Application logs
+logs/
+*.log
+*.log.*
+
+# Output and results
+output/
+results/
+exports/
+crops/
+annotated/
+csv/
+
+# Temporary processing files
+temp/
+tmp/
+*.tmp
+
+# ============================================================================
+# Model Files (Keep reference models, ignore downloads)
+# ============================================================================
+
+# Downloaded YOLO models (large files)
+models/*.pt
+models/*.pth
+
+# Keep reference models in root for development
+# (Uncomment to ignore all .pt files everywhere)
+# *.pt
+# *.pth
+
+# Other model formats
+*.onnx
+*.h5
+*.pb
+*.tflite
+*.mlmodel
+
+# Model metadata and caches
+models/cache/
+models/*.json
+!models/__init__.py
+
+# Ultralytics cache
+.cache/
+
+# ============================================================================
+# Data and Media
+# ============================================================================
+
+# Test images and videos (if large)
+# Uncomment if you don't want to track test data
+# test_data/
+# sample_images/
+# sample_videos/
+
+# Processed media
+data/processed/
+data/output/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================================================
+# Documentation
+# ============================================================================
+
+# Sphinx documentation
+docs/_build/
+docs/.doctrees/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# ============================================================================
+# Environment and Secrets
+# ============================================================================
+
+# Environment variables
+.env
+.env.*
+!.env.example
+.envrc
+
+# Secrets and credentials
+secrets/
+*.key
+*.pem
+*.cert
+
+# ============================================================================
+# Benchmarking and Profiling
+# ============================================================================
+
+# Profiling data
+*.prof
+*.lprof
+profile_results/
+
+# Benchmark results
+benchmark_results/
+*.benchmark
+
+# ============================================================================
+# Miscellaneous
+# ============================================================================
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Compressed archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Lock files (keep requirements.txt, ignore locks)
+*.lock
+Poetry.lock
+Pipfile.lock

@@ -1,7 +1,7 @@
 """
 Model downloading and management for Game Camera Analyzer.
 
-Handles downloading YOLOv8 models from Ultralytics, local caching,
+Handles downloading YOLOv8 models from GitHub releases, local caching,
 metadata extraction, and version tracking.
 """
 
@@ -9,23 +9,20 @@ import hashlib
 import json
 import logging
 import shutil
+import time
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
-from ultralytics import YOLO
+import requests
 
 logger = logging.getLogger(__name__)
 
 
-# Default model storage directory - use user data directory
-try:
-    from platformdirs import user_data_dir
-    DEFAULT_DOWNLOAD_DIR: Path = Path(user_data_dir("GameCameraAnalyzer", "RandyNorthrup")) / "models"
-except ImportError:
-    # Fallback if platformdirs not available
-    DEFAULT_DOWNLOAD_DIR: Path = Path.home() / "Documents" / "GameCameraAnalyzer" / "models"
+# Default model storage directory - use consistent location across all modules
+# This matches DEFAULT_MODEL_DIR in model_manager.py
+DEFAULT_DOWNLOAD_DIR: Path = Path.home() / ".game_camera_analyzer" / "models"
 
 
 @dataclass
@@ -330,90 +327,69 @@ class ModelDownloader:
             progress_callback(progress)
 
         try:
-            # Use Ultralytics YOLO to download
-            # This automatically handles downloading from official sources
-            logger.debug(f"Initializing YOLO download for {model_name}")
+            # Download directly from GitHub using requests
+            download_url = model_info.download_url
+            logger.info(f"Downloading from: {download_url}")
 
-            # Update progress - download in progress
+            # Download with progress tracking
+            response = requests.get(download_url, stream=True, timeout=300)
+            response.raise_for_status()
+
+            total_size = int(response.headers.get('content-length', 0))
+            downloaded_size = 0
+            start_time = time.time()
+
+            # Write to file in chunks
+            with open(local_path, 'wb') as f:
+                for chunk in response.iter_content(chunk_size=8192):
+                    if chunk:
+                        f.write(chunk)
+                        downloaded_size += len(chunk)
+
+                        # Update progress callback
+                        if progress_callback and total_size > 0:
+                            elapsed = time.time() - start_time
+                            speed = (downloaded_size / (1024 * 1024)) / elapsed if elapsed > 0 else 0
+                            progress.update(downloaded_size, total_size, speed)
+                            progress_callback(progress)
+
+            logger.info(f"Model downloaded to: {local_path}")
+
+            # Calculate SHA-256 checksum
+            sha256 = self._calculate_sha256(local_path)
+
+            # Save metadata
+            self._metadata[model_name] = {
+                "download_date": datetime.now().isoformat(),
+                "sha256": sha256,
+                "source": "github",
+                "url": download_url,
+            }
+            self._save_metadata()
+
+            progress.is_complete = True
+            progress.percent_complete = 100.0
+
             if progress_callback:
-                progress.percent_complete = 50.0
                 progress_callback(progress)
 
-            _ = YOLO(model_name)  # Download model
+            logger.info(f"Successfully downloaded {model_name}")
 
-            # Check if model is now in our download directory
-            if local_path.exists():
-                logger.info(f"Model downloaded directly to: {local_path}")
-                source_path = local_path
-            else:
-                # Find where Ultralytics cached the model
-                ultralytics_cache = Path.home() / ".cache" / "ultralytics"
-                source_path = None
+            # Return updated model info
+            result = self.get_model_info(model_name)
+            if result:
+                return result
+            return model_info
 
-                # Try common cache locations
-                possible_locations = [
-                    ultralytics_cache / model_name,
-                    ultralytics_cache / "weights" / model_name,
-                    ultralytics_cache / "models" / model_name,
-                ]
+        except requests.RequestException as e:
+            error_msg = f"Failed to download {model_name}: {e}"
+            logger.error(error_msg, exc_info=True)
+            progress.error_message = str(e)
 
-                # Search in cache directory
-                if ultralytics_cache.exists():
-                    for cached_file in ultralytics_cache.rglob(model_name):
-                        source_path = cached_file
-                        logger.info(f"Found model in cache: {cached_file}")
-                        break
+            if progress_callback:
+                progress_callback(progress)
 
-                    # Also check common subdirectories
-                    if not source_path:
-                        for location in possible_locations:
-                            if location.exists():
-                                source_path = location
-                                logger.info(f"Found model in: {location}")
-                                break
-
-            if source_path and source_path.exists():
-                # Copy to our download directory if not already there
-                if source_path != local_path:
-                    logger.info(f"Copying model from {source_path} to {local_path}")
-                    self.download_dir.mkdir(parents=True, exist_ok=True)
-                    shutil.copy2(source_path, local_path)
-
-                # Calculate SHA-256 checksum
-                sha256 = self._calculate_sha256(local_path)
-
-                # Save metadata
-                self._metadata[model_name] = {
-                    "download_date": datetime.now().isoformat(),
-                    "sha256": sha256,
-                    "source": "ultralytics",
-                }
-                self._save_metadata()
-
-                progress.is_complete = True
-                progress.percent_complete = 100.0
-
-                if progress_callback:
-                    progress_callback(progress)
-
-                logger.info(f"Successfully downloaded {model_name}")
-
-                # Return updated model info
-                result = self.get_model_info(model_name)
-                if result:
-                    return result
-                return model_info
-            else:
-                # Provide helpful error message with search locations
-                error_details = f"Could not find downloaded model {model_name}.\n"
-                error_details += f"Expected location: {local_path}\n"
-                error_details += f"Cache directory: {ultralytics_cache}\n"
-                error_details += "Searched locations:\n"
-                for loc in possible_locations:
-                    error_details += f"  - {loc}\n"
-                logger.error(error_details)
-                raise RuntimeError(error_details)
-
+            raise RuntimeError(error_msg) from e
         except Exception as e:
             error_msg = f"Failed to download {model_name}: {e}"
             logger.error(error_msg, exc_info=True)
